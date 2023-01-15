@@ -13,28 +13,48 @@ class Customer(models.Model):
 
 class Cart(models.Model):
     adress = models.CharField(max_length=200)
-    Paid = models.BooleanField()
+    paid = models.BooleanField()
     datetime= models.DateField(auto_now_add=False)
     Postcode = models.CharField(max_length=20)
     customer_id = models.IntegerField()
     #totalprice
 
+class Contains(models.Model):
+    quantity = models.IntegerField(default=1)
+    cart_id = models.IntegerField()
+    product_id = models.IntegerField()
+
 class Product(models.Model):
     name = models.CharField(max_length=50)
     brand = models.CharField(max_length=30)
+    seller_id = models.IntegerField()
+    quantity = models.IntegerField(default=0)
+    price = models.IntegerField()
+
+class Contains(models.Model):
+    quantity = models.IntegerField(default=1)
+    deal_id = models.IntegerField()
+    product_id = models.IntegerField()
+
+class deal(models.Model):
+    datetime = models.DateField(auto_now_add=False)
+    seald = models.BooleanField()
+
+
 class Tube(models.Model):
     size = models.CharField(max_length=5)
+
 class Tire(models.Model):
     description = models.CharField(max_length=200)
     layer = models.CharField(max_length=20)
     pattern = models.CharField(max_length=20)
+
 class rime(models.Model):
     description = models.CharField(max_length=5)
     layer = models.CharField(max_length=20)
-    pattern = models.CharField(max_length=20)         
-class deal(models.Model):
-    datetime = models.DateField(auto_now_add=False)
-    seald = models.BooleanField()
+    pattern = models.CharField(max_length=20)    
+
+
 class organization(models.Model):    
     name = models.CharField(max_length=50)
 
