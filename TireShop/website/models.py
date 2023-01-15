@@ -11,6 +11,10 @@ class Customer(models.Model):
 
 class Cart(models.Model):
     adress = models.CharField(max_length=200)
+    Paid = models.BooleanField()
+    DateTime= models.DateField(auto_now_add=False)
+    Postcode = models.CharField(max_length=20)
+    #totalprice
 
 class CustomerHasCart(models.Model):
     customer_id = models.IntegerField()
