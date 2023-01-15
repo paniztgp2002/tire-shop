@@ -17,7 +17,7 @@ class Cart(models.Model):
     DateTime= models.DateField(auto_now_add=False)
     Postcode = models.CharField(max_length=20)
     #totalprice
-    
+
 class CustomerHasCart(models.Model):
     customer_id = models.IntegerField()
     cart_id = models.IntegerField()
@@ -33,4 +33,11 @@ class Tire(models.Model):
 class rime(models.Model):
     description = models.CharField(max_length=5)
     layer = models.CharField(max_length=20)
-    pattern = models.CharField(max_length=20)         
+    pattern = models.CharField(max_length=20)
+class Seller(models.Model):
+    name = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=11)
+    balance = models.IntegerField(default=0)
+class Organization(models.Model):
+    name = models.CharField(max_length=50)
+                     
