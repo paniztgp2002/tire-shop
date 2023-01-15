@@ -27,7 +27,7 @@
               type="search" placeholder="Search..." aria-label="Search"></span>
           <svg height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 512 512" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-            <circle r="50" transform="matrix(5.120007 0 0 5.120009 256.000366 256.000366)" fill="#FFDD00" />
+            <circle r="50" transform="matrix(5.120007 0 0 5.120009 256.000366 256.000366)" fill="#9CCB42" />
             <path
               d="M504.971,448.402L380.623,324.053C402.953,290.902,416,250.977,416,208C416,93.125,322.875,0,208,0s-208,93.125-208,208s93.125,208,208,208c42.977,0,82.902-13.047,116.053-35.377L448.402,504.971c9.373,9.373,24.569,9.373,33.942,0l22.627-22.627c9.373-9.373,9.373-24.569,0-33.942ZM80,208c0-70.58,57.42-128,128-128s128,57.42,128,128c0,70.578-57.42,128-128,128s-128-57.422-128-128Z"
               transform="matrix(.706176 0 0 0.706175 75.219052 75.219308)" fill="#fff" />
@@ -63,16 +63,16 @@
                 }
 
                 .stop1 {
-                  stop-color: #00B0AC;
+                  stop-color: #EDDA0D;
                 }
 
                 .stop2 {
-                  stop-color: #7fc656;
+                  stop-color: #EDDA0D;
                   stop-opacity: 50;
                 }
 
                 .stop3 {
-                  stop-color: #FFDD00;
+                  stop-color: #EDDA0D;
                 }
                 ]]>
               </style>
@@ -107,7 +107,10 @@
   </nav>
   <div id="main" class="row rounded-4 bg-light mt-4">
     <div id="asearch" class="col col-4"></div>
-    <div class="col col-8"></div>
+    <div class="col col-8" id="land-img-cont">
+      <span class="img-helper"></span>
+      <img src="{% static 'website/img/landing.png' %}" class="w-100">
+    </div>
   </div>
   <script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
 </body>

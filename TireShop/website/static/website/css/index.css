@@ -8,7 +8,7 @@ body {
 }
 
 #search-form>span {
-    background: linear-gradient(to left, #FFDD00, #00B0AC);
+    background: linear-gradient(to left, #A0CC3F, #53BF75);
     padding: 3px;
 }
 
@@ -19,12 +19,27 @@ body {
 
 #main {
     height: 700px;
-    background-image: url('http://127.0.0.1:8000/static/website/img/landing.png');
+    /* background-image: url('http://127.0.0.1:8000/static/website/img/landing.png'); */
     overflow: hidden;
 }
 
 #asearch {
     background-color: #FFDD00;
+}
+
+#land-img-cont{
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+}
+
+#land-img-cont > img {
+    vertical-align: middle;
+}
+
+.img-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
 
 #brand-div {
