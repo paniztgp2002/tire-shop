@@ -12,104 +12,76 @@
 </head>
 
 <body class="p-2 p-lg-3 px-lg-5">
-  <nav class="navbar bg-light rounded rounded-4">
+  <nav class="navbar rounded rounded-4">
     <div class="container-fluid d-flex justify-content-between">
-      <div id="brand-div">
+      <div id="brand-div" class="text-center mx-0 ms-md-3 me-md-2">
         <a class="navbar-brand" href="#">
           <img src="{% static 'website/img/tirelogo.svg' %}" alt="Logo" width="55"
             class="d-inline-block align-text-middle">
-          <b>Tire Shop</b>
+          <b id="main-title">Tire Shop</b>
         </a>
       </div>
-      <div id="form-div" class="d-flex justify-content-center">
+      <div id="form-div" class="d-flex justify-content-center flex-grow-1">
         <form id="search-form" class="d-flex" role="search">
-          <span class="rounded rounded-pill"><input class="form-control rounded rounded-pill border-0 me-0"
-              type="search" placeholder="Search..." aria-label="Search"></span>
-          <svg height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          <span class="rounded rounded-pill w-100">
+            <input class="form-control rounded rounded-pill border-0 me-0"
+              type="search" placeholder="Search..." aria-label="Search">
+          </span>
+          <svg height="1" width="1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 512 512" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-            <circle r="50" transform="matrix(5.120007 0 0 5.120009 256.000366 256.000366)" fill="#9CCB42" />
+            <circle r="50" transform="matrix(5.120007 0 0 5.120009 256.000366 256.000366)" fill="#45f3ff" />
             <path
               d="M504.971,448.402L380.623,324.053C402.953,290.902,416,250.977,416,208C416,93.125,322.875,0,208,0s-208,93.125-208,208s93.125,208,208,208c42.977,0,82.902-13.047,116.053-35.377L448.402,504.971c9.373,9.373,24.569,9.373,33.942,0l22.627-22.627c9.373-9.373,9.373-24.569,0-33.942ZM80,208c0-70.58,57.42-128,128-128s128,57.42,128,128c0,70.578-57.42,128-128,128s-128-57.422-128-128Z"
-              transform="matrix(.706176 0 0 0.706175 75.219052 75.219308)" fill="#fff" />
+              transform="matrix(.706176 0 0 0.706175 75.219052 75.219308)" fill="#28292D" />
           </svg>
         </form>
       </div>
-      <div id="products-div" class="text-center">
+      <div class="phone-down text-center mx-2 ms-lg-3">
         <span class="dropdown">
           <a class="dropdown-toggle text-decoration-none text-secondary" href="#" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             Products
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Tire</a></li>
-            <li><a class="dropdown-item" href="#">Rim</a></li>
-            <li><a class="dropdown-item" href="#">Tube</a></li>
+          <ul class="dropdown-menu bg-dark">
+            <li><a class="dropdown-item text-light" href="#">Tire</a></li>
+            <li><a class="dropdown-item text-light" href="#">Rim</a></li>
+            <li><a class="dropdown-item text-light" href="#">Tube</a></li>
           </ul>
         </span>
       </div>
-      <div id="cart-div" class="text-center">
-        <a id="a-cart" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="35">
-            <defs>
-              <linearGradient id="Gradient1">
-                <stop class="stop1" offset="0%" />
-                <stop class="stop2" offset="50%" />
-                <stop class="stop3" offset="100%" />
-              </linearGradient>
-              <style>
-                <![CDATA[
-                #rect1 {
-                  fill: url(#Gradient1);
-                }
-
-                .stop1 {
-                  stop-color: #EDDA0D;
-                }
-
-                .stop2 {
-                  stop-color: #EDDA0D;
-                  stop-opacity: 50;
-                }
-
-                .stop3 {
-                  stop-color: #EDDA0D;
-                }
-                ]]>
-              </style>
-            </defs>
-            <path id="rect1"
+      <div id="products-cart-seperator"></div>
+      <div class="phone-down text-center mx-2">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="35" fill="#45f3ff">
+            <path
               d="M176 416C149.49 416 128 437.49 128 464S149.49 512 176 512S224 490.51 224 464S202.51 416 176 416ZM464 416C437.49 416 416 437.49 416 464S437.49 512 464 512S512 490.51 512 464S490.51 416 464 416ZM569.529 44.734C563.42 36.641 554.107 32 543.967 32H121.957L119.578 19.51C117.422 8.189 107.523 0 96 0H24C10.746 0 0 10.744 0 24C0 37.254 10.746 48 24 48H76.141L136.424 364.488C138.58 375.809 148.479 384 160.002 384H488C501.254 384 512 373.254 512 360C512 346.744 501.254 336 488 336H179.859L170.717 288H489.123C503.406 288 515.959 278.531 519.885 264.797L574.748 72.797C577.529 63.047 575.623 52.828 569.529 44.734ZM477.049 240H161.574L131.1 80H522.77L477.049 240Z" />
-          </svg></a>
+          </svg>
+        </a>
       </div>
-      <div id="user-div" class="text-center">
+      <div class="phone-down text-center ms-2 me-3">
         <a id="a-user" href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="35">
-            <defs>
-              <linearGradient id="Gradient2">
-                <stop class="stop1" offset="0%" />
-                <stop class="stop2" offset="50%" />
-                <stop class="stop3" offset="100%" />
-              </linearGradient>
-              <style>
-                <![CDATA[
-                #rect2 {
-                  fill: url(#Gradient2);
-                }
-                ]]>
-              </style>
-            </defs>
-            <path id="rect2"
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="35" fill="#45f3ff">
+            <path
               d="M256 16C123.451 16 16 123.451 16 256S123.451 496 256 496S496 388.549 496 256S388.549 16 256 16ZM256 448C211.934 448 171.41 432.922 138.971 407.865C159.469 383.609 189.818 368 224 368H288C322.182 368 352.467 383.66 372.949 407.924C340.523 432.945 300.031 448 256 448ZM407.381 373.676C378.084 340.795 335.508 320 288 320H224C176.484 320 133.934 340.816 104.658 373.727C79.279 341.174 64 300.379 64 256C64 150.131 150.131 64 256 64S448 150.131 448 256C448 300.355 432.736 341.133 407.381 373.676ZM256 112C207.398 112 168 151.398 168 200C168 248.6 207.398 288 256 288S344 248.6 344 200C344 151.398 304.602 112 256 112ZM256 240C233.943 240 216 222.055 216 200C216 177.943 233.943 160 256 160S296 177.943 296 200C296 222.055 278.057 240 256 240Z" />
           </svg></a>
       </div>
     </div>
-    </div>
   </nav>
-  <div id="main" class="row rounded-4 bg-light mt-4">
-    <div id="asearch" class="col col-4"></div>
-    <div class="col col-8" id="land-img-cont">
-      <span class="img-helper"></span>
-      <img src="{% static 'website/img/landing.png' %}" class="w-100">
+  <div id="main" class="rounded-4 mt-4 p-1">
+    <div class="row">
+      <div id="asearch" class="col col-4 p-5">
+        <div class="text-center">Advanced Search</div>
+        <select class="mt-4 form-select bg-dark">
+          <option class="rounded-4" selected>select size</option>
+          <option class="rounded-4" value="1">One</option>
+          <option class="rounded-4" value="2">Two</option>
+          <option class="rounded-4" value="3">Three</option>
+        </select>
+      </div>
+      <div class="col col-8" id="land-img-cont">
+        <span class="img-helper"></span>
+        <img src="{% static 'website/img/landing.png' %}" class="w-100">
+      </div>
     </div>
   </div>
   <script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>

@@ -2,37 +2,72 @@ body {
     background: linear-gradient(to left, #FFDD00, #00B0AC);
 }
 
+.navbar {
+    background-color: #28292D;
+}
+
+#main-title {
+    color: #45f3ff;
+}
+
+#search-form {
+    width: 100%;
+    max-width: 600px;
+    min-width: 225px;
+}
+
 #search-form>svg {
-    transform: translateX(-103%) translateY(1.5px);
+    transform: scale(40) translateX(-60%) translateY(50%);
     cursor: pointer;
 }
 
 #search-form>span {
-    background: linear-gradient(to left, #A0CC3F, #53BF75);
+    background-color: #45f3ff;
     padding: 3px;
 }
 
 #search-form>span>input {
-    width: 30vw;
-    min-width: 225px;
+    width: -webkit-calc(100% - 40px);
+    width:    -moz-calc(100% - 40px);
+    width:         calc(100% - 40px);
+    background-color: #28292D;
+    color: white;
+}
+
+.dropdown-toggle {
+    color: #45f3ff !important;
+}
+
+.dropdown-menu a:hover {
+    color: #212529 !important;
+}
+
+#products-cart-seperator {
+    width: 0px;
 }
 
 #main {
-    height: 700px;
-    /* background-image: url('http://127.0.0.1:8000/static/website/img/landing.png'); */
-    overflow: hidden;
+    background-color: #28292D;
 }
 
-#asearch {
-    background-color: #FFDD00;
+#asearch>.text-center {
+    color: #28292D;
+    font-weight: bold;
+    font-size: larger;
+    border-bottom: 5px solid #28292D;
 }
 
-#land-img-cont{
+select {
+    color: #45f3ff !important;
+}
+
+#land-img-cont {
     white-space: nowrap;
-    text-align: center; margin: 1em 0;
+    text-align: center;
+    margin: 1em 0;
 }
 
-#land-img-cont > img {
+#land-img-cont>img {
     vertical-align: middle;
 }
 
@@ -42,65 +77,25 @@ body {
     vertical-align: middle;
 }
 
-#brand-div {
-    margin: 0;
-    padding: 0;
-    flex-grow: 2;
-    text-align: center;
-}
-
-#form-div {
-    margin: 0;
-    padding: 0;
-    flex-grow: 9;
-}
-
-#products-div {
-    margin: 0;
-    padding: 0;
-    flex-grow: 1;
-}
-
-#cart-div {
-    margin: 0;
-    padding: 0;
-    flex-grow: 1;
-}
-
-#user-div {
-    margin: 0;
-    padding: 0;
-    flex-grow: 1;
-}
-
-.product-card {
-    height: 250px;
-    width: 200px;
-}
-
-
 @media (max-width:767px) {
     #brand-div {
-        order: 1;
-        text-align: start;
+        flex-basis: 20%;
     }
 
-    #cart-div {
-        order: 2;
-    }
-
-    #user-div {
-        order: 3;
+    #brand-div>a>b {
+        display: none;
     }
 
     #form-div {
-        flex-grow: 1;
-        border-top: 1px solid black;
-        order: 4;
+        margin: 0;
+        flex-basis: 70%;
     }
 
-    #products-div {
-        border-top: 1px solid black;
-        order: 5;
+    #products-cart-seperator {
+        flex-grow: 1;
+    }
+
+    .phone-down {
+        margin-top: 15px;
     }
 }

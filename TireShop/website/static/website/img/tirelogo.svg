@@ -5,7 +5,7 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 382.6"
 	 style="enable-background:new 0 0 600 382.6;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#F8F9FA;}
+	.st0{fill:#28292D;}
 	.st1{fill:url(#path32_00000152247452137225250520000010046541082615903889_);}
 	.st2{fill:url(#path52_00000054228203398263557380000005360706981514582417_);}
 	.st3{fill:url(#path72_00000101096655775462802230000006841896882530845103_);}
@@ -493,7 +493,7 @@
 				<g id="g558">
 					
 						<radialGradient id="path568_00000152956710938623744870000008946860596209269178_" cx="-271.9846" cy="22.6402" r="1" gradientTransform="matrix(19.7375 0 0 -33.7364 5637.8633 1062.2988)" gradientUnits="userSpaceOnUse">
-						<stop  offset="0" style="stop-color:#F8F9FA"/>
+						<stop  offset="0" style="stop-color:#28292D"/>
 						<stop  offset="0.9011" style="stop-color:#9A9C9D"/>
 						<stop  offset="1" style="stop-color:#9A9C9D"/>
 					</radialGradient>
