@@ -10,7 +10,7 @@ class Customer(models.Model):
         return CustomerHasCart.objects.filter(customer_id=self.id).latest('address')
 
 class Cart(models.Model):
-    adress = models.CharField(max_length=100)
+    adress = models.CharField(max_length=200)
 
 class CustomerHasCart(models.Model):
     customer_id = models.IntegerField()
