@@ -11,18 +11,21 @@ class Customer(models.Model):
     def last_postcode(self):
         return Cart.objects.filter(customer_id=self.id).latest('postcode')
 
+
 class Cart(models.Model):
     adress = models.CharField(max_length=200)
     paid = models.BooleanField()
-    datetime= models.DateField(auto_now_add=False)
-    Postcode = models.CharField(max_length=20)
+    datetime = models.DateField(auto_now_add=False)
+    postcode = models.CharField(max_length=20)
     customer_id = models.IntegerField()
     #totalprice
 
-class Contains(models.Model):
+
+class CartContainsProduct(models.Model):
     quantity = models.IntegerField(default=1)
     cart_id = models.IntegerField()
     product_id = models.IntegerField()
+
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -31,12 +34,14 @@ class Product(models.Model):
     quantity = models.IntegerField(default=0)
     price = models.IntegerField()
 
-class Contains(models.Model):
+
+class DealContainsProduct(models.Model):
     quantity = models.IntegerField(default=1)
     deal_id = models.IntegerField()
     product_id = models.IntegerField()
 
-class deal(models.Model):
+
+class Deal(models.Model):
     datetime = models.DateField(auto_now_add=False)
     seald = models.BooleanField()
 
@@ -44,17 +49,19 @@ class deal(models.Model):
 class Tube(models.Model):
     size = models.CharField(max_length=5)
 
+
 class Tire(models.Model):
     description = models.CharField(max_length=200)
     layer = models.CharField(max_length=20)
     pattern = models.CharField(max_length=20)
 
-class rime(models.Model):
+
+class Rim(models.Model):
     description = models.CharField(max_length=5)
     layer = models.CharField(max_length=20)
     pattern = models.CharField(max_length=20)    
 
 
-class organization(models.Model):    
+class Organization(models.Model):    
     name = models.CharField(max_length=50)
 

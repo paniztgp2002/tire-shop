@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to left, #ff105f, #ffad06);
+    background: linear-gradient(to left, #FFDD00, #00B0AC);
 }
 
 #search-form>svg {
@@ -8,7 +8,7 @@ body {
 }
 
 #search-form>span {
-    background: linear-gradient(to left, #ff105f, #ffad06);
+    background: linear-gradient(to left, #FFDD00, #00B0AC);
     padding: 3px;
 }
 
@@ -19,6 +19,12 @@ body {
 
 #main {
     height: 700px;
+    background-image: url('http://127.0.0.1:8000/static/website/img/landing.png');
+    overflow: hidden;
+}
+
+#asearch {
+    background-color: #FFDD00;
 }
 
 #brand-div {
