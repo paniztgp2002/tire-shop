@@ -18,10 +18,6 @@ class Cart(models.Model):
     Postcode = models.CharField(max_length=20)
     customer_id = models.IntegerField()
     #totalprice
-    
-class CustomerHasCart(models.Model):
-    customer_id = models.IntegerField()
-    cart_id = models.IntegerField()
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
