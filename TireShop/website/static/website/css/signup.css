@@ -18,7 +18,7 @@ body
 {
 	position: relative;
 	width: 380px;
-	height: 420px;
+	height: 450px;
 	background: #1c1c1c;
 	border-radius: 8px;
 	overflow: hidden;
@@ -140,19 +140,18 @@ h2
 .links 
 {
 	display: flex;
-	justify-content: space-between;
+	justify-content: right;
 }
 .links a 
 {
 	margin: 10px 0;
 	font-size: 0.75em;
-	color: #8f8f8f;
+	color: #45f3ff;
 	text-decoration: beige;
 }
-.links a:hover, 
-.links a:nth-child(2)
+.links a:hover
 {
-	color: #45f3ff;
+	color: #57f4ff;
 }
 input[type="submit"]
 {

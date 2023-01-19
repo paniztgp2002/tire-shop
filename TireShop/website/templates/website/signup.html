@@ -1,31 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Animated Login Form</title>
-	<link href = "{% static 'website/css/login.css' %}" rel="stylesheet">
+	<title>TireShop - Sign Up</title>
+	<link href="{% static 'website/css/signup.css' %}" rel="stylesheet">
 </head>
+
 <body>
 	<div class="box">
-		<form autocomplete="off">
-			<h2>Sign in</h2>
-			<div class="inputBox">
-				<input type="text" required="required">
-				<span>Userame</span>
-				<i></i>
-			</div>
-			<div class="inputBox">
-				<input type="password" required="required">
-				<span>Password</span>
-				<i></i>
-			</div>
-			<div class="links">
-				<a href="#">Forgot Password ?</a>
-				<a href="#">Signup</a>
-			</div>
-			<input type="submit" value="Login">
+		<form method="post" action="/signup/">
+			{% csrf_token %}
+			<h2>Sign Up</h2>
+				<div class="inputBox">
+					{{ form.name }}
+					<span>Name</span>
+					<i></i>
+				</div>
+				<div class="inputBox">
+					{{ form.phone_number }}
+					<span>Phone number</span>
+					<i></i>
+				</div>
+				<div class="inputBox">
+					{{ form.password }}
+					<span>Password</span>
+					<i></i>
+				</div>
+				<div class="links">
+					<a href="/login">Login</a>
+				</div>
+				<input type="submit" value="Sign Up">
 		</form>
 	</div>
 </body>
+
 </html>
