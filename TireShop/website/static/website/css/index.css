@@ -1,42 +1,17 @@
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: "Poppins";
-    src: url("../fonts/Poppins.ttf");
-}
-@font-face {
-    font-family: "Poppins";
-    src: url("../fonts/Poppins-Bold.ttf");
-    font-weight: bold;
-}
-@font-face {
-    font-family: "Poppins";
-    src: url("../fonts/Poppins-Italic.ttf");
-    font-style: italic;
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
 }
 
 body {
     background-color: #1D1D1F;
     color: white;
-    padding-left: 6%;
-    padding-right: 6%;
+    font-family: 'Poppins';
 }
 
 .navbar {
-    background-color: #353340;
-}
-
-.navbar a,
-.navbar b {
-    font-size: 14px;
-    color: white;
-}
-
-.dropdown-menu a:hover {
-    color: #212529 !important;
+    margin-top: 20px;
+    background-color: rgba(53, 51, 64, 0);
 }
 
 .navbar-brand:hover b {
@@ -47,15 +22,7 @@ body {
 .navbar-brand b {
     font-size: medium;
     transition: 0.3s;
-}
-
-#nav-centers a:hover b {
-    color: #5BC8C5;
-    transition: 0.3s;
-}
-
-#nav-centers a b {
-    transition: 0.3s;
+    color: white;
 }
 
 #nav-svgs svg {
@@ -68,58 +35,235 @@ body {
     transition: 0.5s;
 }
 
-#landing .col-4 h1 {
+#navborder {
+	background: linear-gradient(to right,  rgba(105, 105, 105, 0) 0%,rgba(210, 210, 210, 1) 50%,rgba(105, 105, 105, 0) 100%);
+    height: 1px;
+    width: 100%;
+    top: 80px;
+    z-index: 2;
+    position: fixed;
+}
+
+.btn {
     font-weight: 600;
-    font-size: 60px;
-    line-height: 90px;
-    color: #FFFFFF;
+    font-size: 16px;
+    background-color: #5BC8C5;
+    color: #191C1B;
 }
 
-#robust {
-    color: #5BC8C5;
+.btn:hover {
+    background-color: #399e9a;
+    color: #191C1B;
 }
 
-#landing .col-8 h1 {
-    position: absolute;
-    transform: translateY(-5%);
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 11.3vw;
-    line-height: 150%;
-    letter-spacing: 0.04em;
-    -webkit-text-fill-color: #1D1D1F;
-    -webkit-text-stroke-width: 4px;
-    -webkit-text-stroke-color: rgba(193, 203, 195, 0.06);
-}
 
 #landing img {
-    position: relative;
-    max-width: 100%;
+    filter: brightness(20%);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
 }
 
-#landing .btn {
-    font-family: 'Inter';
-    background-color: #45F3FF;
-    color: #111111;
+#landing-cont {
+    height: 99vh;
+    padding-top: 125px;
+}
+
+#landing-cont h4 {
+    color: #5BC8C5;
+    font-weight: bold;
+}
+
+#landing-cont h1 {
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.btn-group {
+    width: 40%;
+}
+
+.btn-group .btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #414141;
+    opacity: 0.8;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-group .btn:hover {
+    opacity: 1;
+    transition: 0.3s;
+}
+
+#search-box {
+    width: 60%;
+    border-radius: 10px;
+    background-color: white;
+    padding: 4px;
+}
+
+#search-box input {
+    min-height: 50px;
     border: 0;
 }
 
-#landing .btn:hover {
-    background-color: #2abcc6;
+#search-box input:focus {
+    outline: none;
 }
 
-#product-types h6 {
-    color: #45F3FF;
+#search-box button {
+    background-color: #2E2F2E;
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    height: 100%;
+    width: 106px;
+}
+
+#search-box button:hover {
+    background-color: #1e1e1e;
+}
+
+#search-box select {
+    color: #A2A2A2;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.3s;
+}
+
+#search-box select:hover {
+    cursor: pointer;
+    color: rgb(59, 59, 59);
+    transition: 0.3s;
+}
+
+#search-box select:focus {
+    outline: none;
+}
+
+#pattern-svg {
+    padding: 0px;
+    border-left: 1px solid #A2A2A2;
+}
+
+#pattern-select {
+    margin-left: -5px;
+}
+
+#product-types, #aboutus {
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+#product-types h6, #products h6 {
+    color: #5BC8C5;
 }
 
 #product-types .m-0 div {
     background-color: #353340;
+    color: white;
     min-width: 30%;
+    transition: 0.5s;
+}
+
+#product-types .m-0 div:hover {
+    background-color: #5BC8C5;
+    color: #191C1B;
+    transition: 0.5s;
 }
 
 #product-types .m-0 div svg {
     max-width: 125px;
+}
+
+#products {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.product {
+    width: 295px;
+    height: 455px;
+    background-color: #353340;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.product .btn {
+    width: 120px;
+    height: 40px;
+}
+
+.product .price {
+    font-weight: 700;
+    font-size: 20px;
+    color: #5BC8C5;
+    margin: 0;
+}
+
+#partnership img {
+    position: absolute;
+    filter: brightness(20%);
+    width: 100%;
+    z-index: -1;
+}
+
+#partnership>div {
+    padding-top: 100px;
+}
+
+#partnership>div p {
+    width: 40%;
+}
+
+#partnership>div button {
+    margin-top: 35px;
+    width: 193px;
+    height: 40px;
+}
+
+#aboutus>p {
+    color: #5BC8C5;
+}
+
+footer {
+    background-color: #0C0C0C;
+}
+
+footer p {
+    font-size: 14px;
+    padding-right: 15px;;
+}
+
+footer .row {
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+footer a {
+    color: white;
+    transition: 0.4s;
+}
+
+footer a:hover {
+    color: #5BC8C5;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+footer a:hover svg path {
+    fill: #5BC8C5;
+    transition: 0.4s;
+}
+
+footer a svg path {
+    fill: white;
+    transition: 0.4s;
 }
 
 @media (max-width:767px) {}

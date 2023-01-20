@@ -8,12 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tire Shop</title>
   <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'website/css/splide.min.css'" rel="stylesheet">
+  <link href="{% static 'website/css/splide.min.css' %}" rel="stylesheet">
   <link href="{% static 'website/css/index.css' %}" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar rounded-4 mt-4 mx-0 px-3">
+  <nav class="navbar fixed-top rounded-4 mx-5 px-3">
     <div class="container-fluid d-flex justify-content-between">
       <div>
         <a class="navbar-brand d-flex align-items-center p-0" href="/">
@@ -140,26 +140,21 @@
               </clipPath>
             </defs>
           </svg>
-          <b class="ms-2">Tire Shop</b>
+          <b class="ms-2">TireShop</b>
         </a>
       </div>
-      <div id="nav-centers">
-        <a href="/" class="text-decoration-none"><b>SELL TIRES</b></a>
-        <span class="mx-5 dropdown">
-          <a href="#" class="dropdown-toggle text-decoration-none" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <b>PRODUCTS</b>
-          </a>
-          <ul class="dropdown-menu bg-dark">
-            <li><a href="/products?type=tire" class="dropdown-item">Tire</a></li>
-            <li><a href="/products?type=rim" class="dropdown-item">Rim</a></li>
-            <li><a href="/products?type=tube" class="dropdown-item">Tube</a></li>
-          </ul>
-        </span>
-        <a href="#" class="text-decoration-none"><b>ABOUT US</b></a>
-      </div>
       <div id="nav-svgs">
-        <a href="/" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="/" class="me-2"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.4"
+              d="M15.3332 28.0003C22.3288 28.0003 27.9998 22.3293 27.9998 15.3337C27.9998 8.33805 22.3288 2.66699 15.3332 2.66699C8.33756 2.66699 2.6665 8.33805 2.6665 15.3337C2.6665 22.3293 8.33756 28.0003 15.3332 28.0003Z"
+              fill="#5BC8C5" />
+            <path
+              d="M28.3999 29.3337C28.1599 29.3337 27.9199 29.2404 27.7466 29.0671L25.2666 26.5871C24.9066 26.2271 24.9066 25.6404 25.2666 25.2671C25.6266 24.9071 26.2132 24.9071 26.5866 25.2671L29.0666 27.7471C29.4266 28.1071 29.4266 28.6937 29.0666 29.0671C28.8799 29.2404 28.6399 29.3337 28.3999 29.3337Z"
+              fill="#5BC8C5" />
+          </svg></a>
+        <a href="/" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path
               d="M21.6668 29.9999C22.9555 29.9999 24.0002 28.9552 24.0002 27.6666C24.0002 26.3779 22.9555 25.3333 21.6668 25.3333C20.3782 25.3333 19.3335 26.3779 19.3335 27.6666C19.3335 28.9552 20.3782 29.9999 21.6668 29.9999Z"
               fill="#5BC8C5" />
@@ -187,242 +182,589 @@
       </div>
     </div>
   </nav>
-  <section id="landing" class="mt-5">
-    <div class="row mx-0">
-      <div class="col-4">
-        <h1>Try our<br><span id="robust">Robust</span><br>Tires for your<br>Cars</h1>
-        <p>easily buy tires for personal or orgnaizational use...</p>
-        <a href="products" class="btn btn-primary rounded-pill p-3 px-4 mt-2"><b>Get Started</b></a>
+  <div id="navborder"></div>
+  <section id="landing" class="m-0">
+    <img src="{% static 'website/img/landing.png' %}" alt="Tire Shop landing">
+    <div id="landing-cont" class="text-center">
+      <h4>Somewhere</h4>
+      <h1 class="mt-3 mb-0">To find your<br>favorite tires</h1>
+      <div class="btn-group mt-4" role="group">
+        <button onclick="selectGroupFunc('all')" id="all-btn" type="button" class="btn">All</button>
+        <button onclick="selectGroupFunc('tires')" id="tires-btn" type="button" class="btn">Tires</button>
+        <button onclick="selectGroupFunc('tubes')" id="tubes-btn" type="button" class="btn">Tubes</button>
+        <button onclick="selectGroupFunc('rims')" id="rims-btn" type="button" class="btn">Rims</button>
       </div>
-      <div class="col-8">
-        <h1>Tire Shop</h1>
-        <img src="{% static 'website/img/landing.png'%}">
+      <div class="d-flex justify-content-center">
+        <div id="search-box" class="d-flex justify-content-start align-items-center">
+          <svg class="ms-3 me-2" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+              stroke="#5BC8C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M20.9999 21.0004L16.6499 16.6504" stroke="#5BC8C5" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <input class="flex-grow-1" type="text" placeholder="Search among our products">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.59 1.75C12.62 1.75 10.21 4.16 10.21 7.13C10.21 10.1 12.62 12.51 15.59 12.51C18.56 12.51 20.97 10.1 20.97 7.13C20.97 4.16 18.56 1.75 15.59 1.75Z"
+              fill="#5BC8C5" />
+            <path opacity="0.4"
+              d="M6.35977 13.0303C4.52977 13.0303 3.02979 14.5203 3.02979 16.3603C3.02979 18.2003 4.51977 19.6903 6.35977 19.6903C8.18977 19.6903 9.68979 18.2003 9.68979 16.3603C9.68979 14.5203 8.18977 13.0303 6.35977 13.0303Z"
+              fill="#5BC8C5" />
+            <path opacity="0.4"
+              d="M16.6201 16.6201C15.0701 16.6201 13.8101 17.8801 13.8101 19.4301C13.8101 20.9801 15.0701 22.2401 16.6201 22.2401C18.1701 22.2401 19.4301 20.9801 19.4301 19.4301C19.4301 17.8801 18.1701 16.6201 16.6201 16.6201Z"
+              fill="#5BC8C5" />
+          </svg>
+          <select class="ms-1 me-1">
+            <option selected>Size</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <svg id="pattern-svg" class="ms-2" width="48" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5.25 8.5C7.04493 8.5 8.5 7.04493 8.5 5.25C8.5 3.45507 7.04493 2 5.25 2C3.45507 2 2 3.45507 2 5.25C2 7.04493 3.45507 8.5 5.25 8.5Z"
+              fill="#5BC8C5" />
+            <path
+              d="M5 22C6.65685 22 8 20.6569 8 19C8 17.3431 6.65685 16 5 16C3.34315 16 2 17.3431 2 19C2 20.6569 3.34315 22 5 22Z"
+              fill="#5BC8C5" />
+            <path
+              d="M19 22C20.6569 22 22 20.6569 22 19C22 17.3431 20.6569 16 19 16C17.3431 16 16 17.3431 16 19C16 20.6569 17.3431 22 19 22Z"
+              fill="#5BC8C5" />
+            <path opacity="0.4"
+              d="M19.17 15.9802C18.2 13.2002 15.58 11.3302 12.63 11.3302C12.62 11.3302 12.61 11.3302 12.6 11.3302L9.07 11.3402C7.55 11.3602 6.19 10.3302 5.78 8.85023V7.00023C5.78 6.58023 5.44 6.24023 5.01 6.24023C4.58 6.24023 4.25 6.58023 4.25 7.00023V18.2202C4.25 18.6402 4.59 18.9802 5.01 18.9802C5.43 18.9802 5.78 18.6402 5.78 18.2202V11.6002C6.66 12.3802 7.81 12.8602 9.06 12.8602C9.07 12.8602 9.07 12.8602 9.08 12.8602L12.61 12.8502C12.62 12.8502 12.62 12.8502 12.63 12.8502C14.92 12.8502 16.97 14.3002 17.72 16.4702C17.83 16.7902 18.13 16.9802 18.44 16.9802C18.52 16.9802 18.61 16.9702 18.69 16.9402C19.1 16.8202 19.31 16.3802 19.17 15.9802Z"
+              fill="#5BC8C5" />
+          </svg>
+          <select id="pattern-select" class="me-3">
+            <option selected>Pattern
+            </option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <button class="btn btn-secondary" type="submit">Search</button>
+        </div>
       </div>
     </div>
   </section>
   <section id="product-types" class="mt-5 py-5">
-    <h6><b>What we sell</b></h6>
-    <h2 class="mt-2">Our Product Types</h2>
+    <h6><b>What we do</b></h6>
+    <h2 class="mt-2"><b>Our Product Types</b></h2>
     <div class="container-fluid my-5">
-    <div class="row m-0 justify-content-center">
-      <div class="col-3 text-center px-5 py-4 rounded-4">
-        <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" id="svg3664" viewBox="0 0 128 128" version="1.1">
-          <defs id="defs3666">
-           <linearGradient id="linearGradient4342" y2="814.67" xlink:href="#linearGradient6122-7" gradientUnits="userSpaceOnUse" x2="593.26" y1="814.67" x1="492.68"/>
-           <linearGradient id="linearGradient6122-7">
-            <stop id="stop6124-1" stop-color="#e4e4cd" offset="0"/>
-            <stop id="stop6126-6" stop-color="#858585" offset="1"/>
-           </linearGradient>
-           <linearGradient id="linearGradient4487" y2="814.71" xlink:href="#linearGradient6122-7" gradientUnits="userSpaceOnUse" x2="543.91" y1="814.71" x1="525.71"/>
-           <linearGradient id="linearGradient4501" y2="814.01" xlink:href="#linearGradient4418" gradientUnits="userSpaceOnUse" x2="539.37" y1="814.01" x1="529.99"/>
-           <linearGradient id="linearGradient4418">
-            <stop id="stop4420" offset="0"/>
-            <stop id="stop4422" stop-opacity="0" offset="1"/>
-           </linearGradient>
-           <linearGradient id="linearGradient4360" y2="956" xlink:href="#linearGradient6122-7" gradientUnits="userSpaceOnUse" x2="792.08" gradientTransform="matrix(2.3068 .36536 -.36536 2.3068 -624.22 -1520.9)" y1="956" x1="695.92"/>
-           <linearGradient id="linearGradient4378" y2="956" xlink:href="#linearGradient3793" gradientUnits="userSpaceOnUse" x2="792.08" gradientTransform="matrix(2.3068 .36536 -.36536 2.3068 -624.22 -1520.9)" y1="956" x1="695.92"/>
-           <linearGradient id="linearGradient3793">
-            <stop id="stop3795" stop-color="#252525" offset="0"/>
-            <stop id="stop3797" stop-color="#232323" offset="1"/>
-           </linearGradient>
-           <radialGradient id="radialGradient4342" xlink:href="#linearGradient3793" gradientUnits="userSpaceOnUse" cy="536" cx="328" r="80"/>
-          </defs>
-          <g id="layer1" transform="translate(-310.7 -469.31)">
-           <path id="path3515" d="m591.41 814.67c0 26.859-21.686 48.633-48.438 48.633-26.751 0-48.438-21.774-48.438-48.633s21.686-48.633 48.438-48.633c26.751 0 48.438 21.774 48.438 48.633z" transform="matrix(1.3213 0 0 1.316 -342.72 -538.78)" fill="#1a1a1a"/>
-           <path id="path3517" d="m408 536c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z" transform="matrix(.77907 0 0 .77907 119.16 115.72)" fill="url(#radialGradient4342)"/>
-           <path id="path3519" opacity="0.08" d="m591.41 814.67c0 26.859-21.686 48.633-48.438 48.633-26.751 0-48.438-21.774-48.438-48.633s21.686-48.633 48.438-48.633c26.751 0 48.438 21.774 48.438 48.633z" transform="matrix(1.2595 0 0 1.2822 -308.84 -512.18)" fill="url(#sand_bitmap)"/>
-           <path id="path3521" d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z" transform="matrix(1.0321 0 0 .99734 -185.39 -279.79)" fill="#333"/>
-           <g id="g4381" transform="matrix(.75546 0 0 .75546 377.17 406.73)">
-            <path id="path4344" d="m719.38 912.53c-4.0417 2.1261-7.7748 4.776-11.062 7.875 8.1121 9.9582 13.65 19.744 10.906 28.188-2.7623 8.5014-13.125 13.208-25.656 16.5 0.81813 4.5587 2.2361 8.9012 4.2188 12.938 12.073-4.7028 23.206-7.0042 30.438-1.75 7.1807 5.2171 8.4584 16.367 7.75 29.188 2.2146 0.2974 4.4844 0.4687 6.7812 0.4687s4.5667-0.1713 6.7812-0.4687c-0.70839-12.82 0.60059-23.97 7.7812-29.188 7.2318-5.2542 18.333-2.9528 30.406 1.75 1.9826-4.0364 3.4006-8.3788 4.2188-12.938-12.531-3.2917-22.894-7.9986-25.656-16.5-2.7435-8.4435 2.7941-18.229 10.906-28.188-3.2864-3.0977-6.9915-5.7493-11.031-7.875-6.95 10.75-14.56 18.97-23.41 18.97-8.853 0-16.427-8.2211-23.375-18.969z" transform="matrix(1.3237 0 0 1.3237 -986.05 -1099.2)" fill="url(#linearGradient4360)"/>
-            <path id="path4362" d="m715.97 914.5c-1.622 1.0236-3.1998 2.1469-4.6875 3.3438 12.975 16.465 24.263 31.448 22.906 35.625-1.3649 4.2007-19.496 9.7083-39.812 15.438 0.49746 1.8919 1.1025 3.7344 1.8125 5.5312 19.796-7.3036 37.709-13.502 41.281-10.906 3.5547 2.5826 3.2262 21.353 2.4062 42.313 0.95463 0.054 1.9068 0.094 2.875 0.094 0.96823 0 1.9204-0.04 2.875-0.094-0.81995-20.96-1.1484-39.73 2.4062-42.313 3.5721-2.5953 21.485 3.6027 41.281 10.906 0.71001-1.7968 1.315-3.6394 1.8125-5.5312-20.317-5.7292-38.448-11.237-39.812-15.438-1.357-4.1766 9.9317-19.16 22.906-35.625-1.4916-1.2-3.061-2.3179-4.6875-3.3438-11.64 17.412-22.393 32.75-26.781 32.75-4.3892 0-15.139-15.334-26.781-32.75z" transform="matrix(1.3237 0 0 1.3237 -986.05 -1099.2)" fill="url(#linearGradient4378)"/>
-           </g>
-           <g id="g4477" transform="translate(279.06 -702.54)">
-            <path id="path4387" d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z" transform="matrix(2.099 0 0 2.1276 -1026.6 -498.1)" fill="url(#linearGradient4487)"/>
-            <path id="path3531" d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z" transform="matrix(1.2895 0 0 1.307 -593.68 170.4)" stroke="#000" fill="url(#linearGradient4487)"/>
-            <g id="g3533" transform="matrix(1.2895 0 0 1.307 -593.46 171.46)" fill="url(#linearGradient4501)">
-             <path id="path3537" d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z" transform="matrix(.90202 0 0 .88506 51.32 91.27)"/>
-             <path id="path3539" d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z" transform="matrix(.90202 0 0 .88506 57.979 91.086)"/>
-             <path id="path3541" d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z" transform="matrix(.90202 0 0 .88506 59.777 97.595)"/>
-             <path id="path3543" d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z" transform="matrix(.90202 0 0 .88506 49.473 97.93)"/>
-             <path id="path4434" d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z" transform="matrix(.90202 0 0 .88506 54.66 101.61)"/>
+      <div class="row m-0 justify-content-center">
+        <div class="col-3 text-center px-5 py-4 rounded-4">
+          <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg"
+            xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:dc="http://purl.org/dc/elements/1.1/" id="svg3664" viewBox="0 0 128 128" version="1.1">
+            <defs id="defs3666">
+              <linearGradient id="linearGradient4342" y2="814.67" xlink:href="#linearGradient6122-7"
+                gradientUnits="userSpaceOnUse" x2="593.26" y1="814.67" x1="492.68" />
+              <linearGradient id="linearGradient6122-7">
+                <stop id="stop6124-1" stop-color="#e4e4cd" offset="0" />
+                <stop id="stop6126-6" stop-color="#858585" offset="1" />
+              </linearGradient>
+              <linearGradient id="linearGradient4487" y2="814.71" xlink:href="#linearGradient6122-7"
+                gradientUnits="userSpaceOnUse" x2="543.91" y1="814.71" x1="525.71" />
+              <linearGradient id="linearGradient4501" y2="814.01" xlink:href="#linearGradient4418"
+                gradientUnits="userSpaceOnUse" x2="539.37" y1="814.01" x1="529.99" />
+              <linearGradient id="linearGradient4418">
+                <stop id="stop4420" offset="0" />
+                <stop id="stop4422" stop-opacity="0" offset="1" />
+              </linearGradient>
+              <linearGradient id="linearGradient4360" y2="956" xlink:href="#linearGradient6122-7"
+                gradientUnits="userSpaceOnUse" x2="792.08"
+                gradientTransform="matrix(2.3068 .36536 -.36536 2.3068 -624.22 -1520.9)" y1="956" x1="695.92" />
+              <linearGradient id="linearGradient4378" y2="956" xlink:href="#linearGradient3793"
+                gradientUnits="userSpaceOnUse" x2="792.08"
+                gradientTransform="matrix(2.3068 .36536 -.36536 2.3068 -624.22 -1520.9)" y1="956" x1="695.92" />
+              <linearGradient id="linearGradient3793">
+                <stop id="stop3795" stop-color="#252525" offset="0" />
+                <stop id="stop3797" stop-color="#232323" offset="1" />
+              </linearGradient>
+              <radialGradient id="radialGradient4342" xlink:href="#linearGradient3793" gradientUnits="userSpaceOnUse"
+                cy="536" cx="328" r="80" />
+            </defs>
+            <g id="layer1" transform="translate(-310.7 -469.31)">
+              <path id="path3515"
+                d="m591.41 814.67c0 26.859-21.686 48.633-48.438 48.633-26.751 0-48.438-21.774-48.438-48.633s21.686-48.633 48.438-48.633c26.751 0 48.438 21.774 48.438 48.633z"
+                transform="matrix(1.3213 0 0 1.316 -342.72 -538.78)" fill="#1a1a1a" />
+              <path id="path3517"
+                d="m408 536c0 44.183-35.817 80-80 80s-80-35.817-80-80 35.817-80 80-80 80 35.817 80 80z"
+                transform="matrix(.77907 0 0 .77907 119.16 115.72)" fill="url(#radialGradient4342)" />
+              <path id="path3519" opacity="0.08"
+                d="m591.41 814.67c0 26.859-21.686 48.633-48.438 48.633-26.751 0-48.438-21.774-48.438-48.633s21.686-48.633 48.438-48.633c26.751 0 48.438 21.774 48.438 48.633z"
+                transform="matrix(1.2595 0 0 1.2822 -308.84 -512.18)" fill="url(#sand_bitmap)" />
+              <path id="path3521"
+                d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z"
+                transform="matrix(1.0321 0 0 .99734 -185.39 -279.79)" fill="#333" />
+              <g id="g4381" transform="matrix(.75546 0 0 .75546 377.17 406.73)">
+                <path id="path4344"
+                  d="m719.38 912.53c-4.0417 2.1261-7.7748 4.776-11.062 7.875 8.1121 9.9582 13.65 19.744 10.906 28.188-2.7623 8.5014-13.125 13.208-25.656 16.5 0.81813 4.5587 2.2361 8.9012 4.2188 12.938 12.073-4.7028 23.206-7.0042 30.438-1.75 7.1807 5.2171 8.4584 16.367 7.75 29.188 2.2146 0.2974 4.4844 0.4687 6.7812 0.4687s4.5667-0.1713 6.7812-0.4687c-0.70839-12.82 0.60059-23.97 7.7812-29.188 7.2318-5.2542 18.333-2.9528 30.406 1.75 1.9826-4.0364 3.4006-8.3788 4.2188-12.938-12.531-3.2917-22.894-7.9986-25.656-16.5-2.7435-8.4435 2.7941-18.229 10.906-28.188-3.2864-3.0977-6.9915-5.7493-11.031-7.875-6.95 10.75-14.56 18.97-23.41 18.97-8.853 0-16.427-8.2211-23.375-18.969z"
+                  transform="matrix(1.3237 0 0 1.3237 -986.05 -1099.2)" fill="url(#linearGradient4360)" />
+                <path id="path4362"
+                  d="m715.97 914.5c-1.622 1.0236-3.1998 2.1469-4.6875 3.3438 12.975 16.465 24.263 31.448 22.906 35.625-1.3649 4.2007-19.496 9.7083-39.812 15.438 0.49746 1.8919 1.1025 3.7344 1.8125 5.5312 19.796-7.3036 37.709-13.502 41.281-10.906 3.5547 2.5826 3.2262 21.353 2.4062 42.313 0.95463 0.054 1.9068 0.094 2.875 0.094 0.96823 0 1.9204-0.04 2.875-0.094-0.81995-20.96-1.1484-39.73 2.4062-42.313 3.5721-2.5953 21.485 3.6027 41.281 10.906 0.71001-1.7968 1.315-3.6394 1.8125-5.5312-20.317-5.7292-38.448-11.237-39.812-15.438-1.357-4.1766 9.9317-19.16 22.906-35.625-1.4916-1.2-3.061-2.3179-4.6875-3.3438-11.64 17.412-22.393 32.75-26.781 32.75-4.3892 0-15.139-15.334-26.781-32.75z"
+                  transform="matrix(1.3237 0 0 1.3237 -986.05 -1099.2)" fill="url(#linearGradient4378)" />
+              </g>
+              <g id="g4477" transform="translate(279.06 -702.54)">
+                <path id="path4387"
+                  d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z"
+                  transform="matrix(2.099 0 0 2.1276 -1026.6 -498.1)" fill="url(#linearGradient4487)" />
+                <path id="path3531"
+                  d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z"
+                  transform="matrix(1.2895 0 0 1.307 -593.68 170.4)" stroke="#000" fill="url(#linearGradient4487)" />
+                <g id="g3533" transform="matrix(1.2895 0 0 1.307 -593.46 171.46)" fill="url(#linearGradient4501)">
+                  <path id="path3537"
+                    d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z"
+                    transform="matrix(.90202 0 0 .88506 51.32 91.27)" />
+                  <path id="path3539"
+                    d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z"
+                    transform="matrix(.90202 0 0 .88506 57.979 91.086)" />
+                  <path id="path3541"
+                    d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z"
+                    transform="matrix(.90202 0 0 .88506 59.777 97.595)" />
+                  <path id="path3543"
+                    d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z"
+                    transform="matrix(.90202 0 0 .88506 49.473 97.93)" />
+                  <path id="path4434"
+                    d="m533.76 811.51c0 0.86647-0.7024 1.5689-1.5689 1.5689-0.86646 0-1.5689-0.7024-1.5689-1.5689 0-0.86646 0.70241-1.5689 1.5689-1.5689 0.86647 0 1.5689 0.70241 1.5689 1.5689z"
+                    transform="matrix(.90202 0 0 .88506 54.66 101.61)" />
+                </g>
+              </g>
+              <path id="path3906"
+                d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z"
+                transform="matrix(1.0321 0 0 .99734 -185.39 -279.79)" stroke="url(#linearGradient4342)"
+                stroke-width="3.7108" fill="none" />
             </g>
-           </g>
-           <path id="path3906" d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z" transform="matrix(1.0321 0 0 .99734 -185.39 -279.79)" stroke="url(#linearGradient4342)" stroke-width="3.7108" fill="none"/>
-          </g>
-          <metadata>
-           <rdf:RDF>
-            <cc:Work>
-             <dc:format>image/svg+xml</dc:format>
-             <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-             <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
-             <dc:publisher>
-              <cc:Agent rdf:about="http://openclipart.org/">
-               <dc:title>Openclipart</dc:title>
-              </cc:Agent>
-             </dc:publisher>
-            </cc:Work>
-            <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
-             <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
-             <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
-             <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
-            </cc:License>
-           </rdf:RDF>
-          </metadata>
-         </svg>
-         <h5 class="mt-3"><b>Tire</b></h5>
-         <p>Our tires are varied in cost and cover all types of needs.</p>
-      </div>
-      <div class="col-3 text-center px-5 py-4 rounded-4 mx-auto">
-        <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 128 128" version="1.1">
-          <defs id="defs4">
-            <filter id="filter3887" color-interpolation-filters="sRGB">
-              <feGaussianBlur id="feGaussianBlur3889" stdDeviation="1.7139476"/>
-            </filter>
-            <filter id="filter3771" color-interpolation-filters="sRGB">
-              <feGaussianBlur id="feGaussianBlur3773" stdDeviation="0.3470812"/>
-            </filter>
-            <linearGradient id="linearGradient3869" x1="-20.798" gradientUnits="userSpaceOnUse" y1="51.517" gradientTransform="matrix(.23540 0 0 .33029 53.47 1009.7)" x2="-12.592" y2="51.729">
-              <stop id="stop3781" stop-color="#5a5434" offset="0"/>
-              <stop id="stop3783" stop-color="#5a5434" stop-opacity="0" offset="1"/>
-            </linearGradient>
-          </defs>
-          <g id="layer1" transform="translate(0 -924.36)">
-            <g id="g3817" transform="matrix(1.8962 0 0 3.7226 -27.134 -2802.3)" fill="#020202">
-              <path id="path3819" stroke-width="0" d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z"/>
-              <path id="path3821" stroke-width="0" d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z"/>
-              <path id="path3823" stroke="#7f7241" stroke-width=".091458" d="m48.799 1026.4 1.6155-0.2772"/>
-              <path id="path3825" stroke="#7f7241" stroke-width=".091458" d="m48.799 1026.7 1.6155-0.2771"/>
-              <path id="path3827" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027 1.6155-0.2772"/>
-              <path id="path3829" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027.3 1.6155-0.2771"/>
-              <path id="path3831" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027.6 1.6155-0.2771"/>
-              <path id="path3833" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027.9 1.6155-0.2772"/>
-              <path id="path3835" stroke="#7f7241" stroke-width=".091458" d="m48.799 1028.2 1.6155-0.2771"/>
-              <path id="path3837" stroke="#7f7241" stroke-width=".091458" d="m48.799 1028.4 1.6155-0.2772"/>
+            <metadata>
+              <rdf:RDF>
+                <cc:Work>
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                  <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+                  <dc:publisher>
+                    <cc:Agent rdf:about="http://openclipart.org/">
+                      <dc:title>Openclipart</dc:title>
+                    </cc:Agent>
+                  </dc:publisher>
+                </cc:Work>
+                <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+                </cc:License>
+              </rdf:RDF>
+            </metadata>
+          </svg>
+          <h5 class="mt-3"><b>Tires</b></h5>
+          <p>Our tires are varied in cost and cover all types of needs.</p>
+        </div>
+        <div class="col-3 text-center px-5 py-4 rounded-4 mx-auto">
+          <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg"
+            xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2"
+            viewBox="0 0 128 128" version="1.1">
+            <defs id="defs4">
+              <filter id="filter3887" color-interpolation-filters="sRGB">
+                <feGaussianBlur id="feGaussianBlur3889" stdDeviation="1.7139476" />
+              </filter>
+              <filter id="filter3771" color-interpolation-filters="sRGB">
+                <feGaussianBlur id="feGaussianBlur3773" stdDeviation="0.3470812" />
+              </filter>
+              <linearGradient id="linearGradient3869" x1="-20.798" gradientUnits="userSpaceOnUse" y1="51.517"
+                gradientTransform="matrix(.23540 0 0 .33029 53.47 1009.7)" x2="-12.592" y2="51.729">
+                <stop id="stop3781" stop-color="#5a5434" offset="0" />
+                <stop id="stop3783" stop-color="#5a5434" stop-opacity="0" offset="1" />
+              </linearGradient>
+            </defs>
+            <g id="layer1" transform="translate(0 -924.36)">
+              <g id="g3817" transform="matrix(1.8962 0 0 3.7226 -27.134 -2802.3)" fill="#020202">
+                <path id="path3819" stroke-width="0"
+                  d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z" />
+                <path id="path3821" stroke-width="0"
+                  d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z" />
+                <path id="path3823" stroke="#7f7241" stroke-width=".091458" d="m48.799 1026.4 1.6155-0.2772" />
+                <path id="path3825" stroke="#7f7241" stroke-width=".091458" d="m48.799 1026.7 1.6155-0.2771" />
+                <path id="path3827" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027 1.6155-0.2772" />
+                <path id="path3829" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027.3 1.6155-0.2771" />
+                <path id="path3831" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027.6 1.6155-0.2771" />
+                <path id="path3833" stroke="#7f7241" stroke-width=".091458" d="m48.799 1027.9 1.6155-0.2772" />
+                <path id="path3835" stroke="#7f7241" stroke-width=".091458" d="m48.799 1028.2 1.6155-0.2771" />
+                <path id="path3837" stroke="#7f7241" stroke-width=".091458" d="m48.799 1028.4 1.6155-0.2772" />
+              </g>
+              <path id="path3063" opacity=".4554" stroke-linejoin="round"
+                d="m-54.478 931.71c-18.362 0-33.233 14.871-33.233 33.233s14.871 33.268 33.233 33.268 33.268-14.906 33.268-33.268-14.906-33.233-33.268-33.233zm-0.52975 5.5447c15.302 0 27.688 12.422 27.688 27.724s-12.386 27.688-27.688 27.688-27.724-12.386-27.724-27.688 12.422-27.724 27.724-27.724z"
+                fill-rule="evenodd" transform="matrix(1.6836 0 0 1.6549 155.69 -607.5)" filter="url(#filter3887)"
+                stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0" stroke-width="1.3125" />
+              <path id="path3083" opacity=".4554" stroke-linejoin="round"
+                d="m-58.811 920.88c-18.362 0-33.233 14.871-33.233 33.233s14.871 33.268 33.233 33.268 33.268-14.906 33.268-33.268-14.906-33.233-33.268-33.233zm-0.52975 5.5447c15.302 0 27.688 12.422 27.688 27.724s-12.386 27.688-27.688 27.688-27.724-12.386-27.724-27.688 12.422-27.724 27.724-27.724z"
+                fill-rule="evenodd" transform="matrix(1.3649 0 0 1.3416 144.25 -294.37)" filter="url(#filter3887)"
+                stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0" stroke-width="1.3125" />
+              <g id="g3805" transform="matrix(1.8962 0 0 3.7226 -27.134 -2802.3)">
+                <path id="path3775" stroke-width="0" fill="#e1c535"
+                  d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z" />
+                <path id="path3777" stroke-width="0" fill="url(#linearGradient3869)"
+                  d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z" />
+                <path id="path3789" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1026.4 1.6155-0.2772" />
+                <path id="path3791" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1026.7 1.6155-0.2771" />
+                <path id="path3793" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1027 1.6155-0.2772" />
+                <path id="path3795" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1027.3 1.6155-0.2771" />
+                <path id="path3797" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1027.6 1.6155-0.2771" />
+                <path id="path3799" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1027.9 1.6155-0.2772" />
+                <path id="path3801" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1028.2 1.6155-0.2771" />
+                <path id="path3803" stroke="#7f7241" stroke-width=".091458" fill="none"
+                  d="m48.799 1028.4 1.6155-0.2772" />
+              </g>
+              <path id="path3741" opacity=".72105" stroke-linejoin="round"
+                d="m65.214 935.85c-28.009 0-50.692 22.296-50.692 49.828s22.683 49.881 50.692 49.881 50.746-22.35 50.746-49.881-22.737-49.828-50.746-49.828zm-0.80805 8.3135c23.341 0 42.234 18.625 42.234 41.567 0 22.943-18.894 41.515-42.234 41.515-23.341 0-42.288-18.572-42.288-41.515s18.947-41.567 42.288-41.567z"
+                fill-rule="evenodd" stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0"
+                stroke-width="1.9849" />
+              <path id="path2977" opacity=".72105" stroke-linejoin="round"
+                d="m65.209 925.56c-33.791 0-61.157 26.9-61.157 60.115s27.366 60.179 61.157 60.179 61.222-26.964 61.222-60.179-27.431-60.115-61.222-60.115zm-0.97486 10.03c28.159 0 50.953 22.47 50.953 50.149s-22.794 50.085-50.953 50.085-51.018-22.406-51.018-50.085 22.859-50.149 51.018-50.149z"
+                fill-rule="evenodd" stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0"
+                stroke-width="2.3947" />
+              <path id="path3757" opacity=".44737" stroke-linejoin="round"
+                d="m13.441 41.967c0 9.9627-7.4746 18.039-16.695 18.039s-16.695-8.0764-16.695-18.039c0-9.9627 7.4746-18.039 16.695-18.039s16.695 8.0764 16.695 18.039z"
+                fill-opacity="0" transform="matrix(3.1306 0 0 2.8334 75.34 865.98)" filter="url(#filter3771)"
+                stroke="#fff" stroke-linecap="round" stroke-miterlimit="0" stroke-width="1.056" />
             </g>
-            <path id="path3063" opacity=".4554" stroke-linejoin="round" d="m-54.478 931.71c-18.362 0-33.233 14.871-33.233 33.233s14.871 33.268 33.233 33.268 33.268-14.906 33.268-33.268-14.906-33.233-33.268-33.233zm-0.52975 5.5447c15.302 0 27.688 12.422 27.688 27.724s-12.386 27.688-27.688 27.688-27.724-12.386-27.724-27.688 12.422-27.724 27.724-27.724z" fill-rule="evenodd" transform="matrix(1.6836 0 0 1.6549 155.69 -607.5)" filter="url(#filter3887)" stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0" stroke-width="1.3125"/>
-            <path id="path3083" opacity=".4554" stroke-linejoin="round" d="m-58.811 920.88c-18.362 0-33.233 14.871-33.233 33.233s14.871 33.268 33.233 33.268 33.268-14.906 33.268-33.268-14.906-33.233-33.268-33.233zm-0.52975 5.5447c15.302 0 27.688 12.422 27.688 27.724s-12.386 27.688-27.688 27.688-27.724-12.386-27.724-27.688 12.422-27.724 27.724-27.724z" fill-rule="evenodd" transform="matrix(1.3649 0 0 1.3416 144.25 -294.37)" filter="url(#filter3887)" stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0" stroke-width="1.3125"/>
-            <g id="g3805" transform="matrix(1.8962 0 0 3.7226 -27.134 -2802.3)">
-              <path id="path3775" stroke-width="0" fill="#e1c535" d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z"/>
-              <path id="path3777" stroke-width="0" fill="url(#linearGradient3869)" d="m48.674 1024.9 0.76601-0.047 0.03331 1.1215s0.39966 0.1402 0.36635-0.047c-0.03331-0.1869-0.03331-1.028-0.03331-1.028l0.6661-0.094 0.03331 3.9254-1.7319 0.047-0.09992-3.8785z"/>
-              <path id="path3789" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1026.4 1.6155-0.2772"/>
-              <path id="path3791" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1026.7 1.6155-0.2771"/>
-              <path id="path3793" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1027 1.6155-0.2772"/>
-              <path id="path3795" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1027.3 1.6155-0.2771"/>
-              <path id="path3797" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1027.6 1.6155-0.2771"/>
-              <path id="path3799" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1027.9 1.6155-0.2772"/>
-              <path id="path3801" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1028.2 1.6155-0.2771"/>
-              <path id="path3803" stroke="#7f7241" stroke-width=".091458" fill="none" d="m48.799 1028.4 1.6155-0.2772"/>
+            <metadata>
+              <rdf:RDF>
+                <cc:Work>
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                  <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+                  <dc:publisher>
+                    <cc:Agent rdf:about="http://openclipart.org/">
+                      <dc:title>Openclipart</dc:title>
+                    </cc:Agent>
+                  </dc:publisher>
+                  <dc:title>car-inner-tube</dc:title>
+                  <dc:date>2010-07-22T12:52:38</dc:date>
+                  <dc:description>automotive clipart by NetAlloy</dc:description>
+                  <dc:source>http://openclipart.org/detail/74323/car-inner-tube-by-netalloy</dc:source>
+                  <dc:creator>
+                    <cc:Agent>
+                      <dc:title>netalloy</dc:title>
+                    </cc:Agent>
+                  </dc:creator>
+                  <dc:subject>
+                    <rdf:Bag>
+                      <rdf:li>air</rdf:li>
+                      <rdf:li>automotive</rdf:li>
+                      <rdf:li>car inner tube</rdf:li>
+                      <rdf:li>clip art</rdf:li>
+                      <rdf:li>clipart</rdf:li>
+                      <rdf:li>motor sports</rdf:li>
+                      <rdf:li>puncture</rdf:li>
+                      <rdf:li>tube</rdf:li>
+                      <rdf:li>tyre parts</rdf:li>
+                      <rdf:li>wheel parts</rdf:li>
+                    </rdf:Bag>
+                  </dc:subject>
+                </cc:Work>
+                <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+                </cc:License>
+              </rdf:RDF>
+            </metadata>
+          </svg>
+          <h5 class="mt-3"><b>Tubes</b></h5>
+          <p>Our tubes are varied in cost and cover all types of needs.</p>
+        </div>
+        <div class="col-3 text-center px-5 py-4 rounded-4">
+          <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg"
+            xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:dc="http://purl.org/dc/elements/1.1/" id="svg6840" viewBox="0 0 144 144" version="1.1">
+            <defs id="defs6842">
+              <linearGradient id="linearGradient6731" y2="814.71" gradientUnits="userSpaceOnUse" x2="543.41" y1="814.71"
+                x1="526.21">
+                <stop id="stop6700" stop-color="#5e5e5e" offset="0" />
+                <stop id="stop6702" stop-color="#898989" offset="1" />
+              </linearGradient>
+              <radialGradient id="radialGradient6733" gradientUnits="userSpaceOnUse" cy="814.71" cx="534.81"
+                gradientTransform="matrix(1 0 0 1.0405 0 -33.029)" r="8.5997">
+                <stop id="stop5588-1" stop-color="#252525" offset="0" />
+                <stop id="stop6687" stop-color="#754110" offset=".20846" />
+                <stop id="stop6683" stop-color="#563e20" offset=".53041" />
+                <stop id="stop6685" stop-color="#322f2d" offset=".68624" />
+                <stop id="stop5590-1" stop-color="#2b2a2a" offset="1" />
+              </radialGradient>
+            </defs>
+            <g id="layer1" transform="translate(-50.857 -577.5)">
+              <g id="g4074" transform="matrix(1.467 0 0 1.467 -661.4 -550.85)">
+                <g id="g6718" transform="translate(-1.3633 -95.43)">
+                  <path id="path3100"
+                    d="m591.41 814.67c0 26.859-21.686 48.633-48.438 48.633-26.751 0-48.438-21.774-48.438-48.633s21.686-48.633 48.438-48.633c26.751 0 48.438 21.774 48.438 48.633z"
+                    transform="matrix(1.0132 0 0 1.0092 -14.202 91.512)" fill="#1a1a1a" />
+                  <path id="path3870"
+                    d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z"
+                    transform="matrix(.79653 0 0 .75304 103.45 300.16)" fill="#333" />
+                  <path id="path6716"
+                    d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z"
+                    transform="matrix(.74566 0 0 .70495 131.08 339.34)" stroke="#7d7d7d" stroke-width="3.7108"
+                    fill="none" />
+                  <path id="path6689"
+                    d="m748 1041.1c-2.813 0-5.5783 0.2092-8.2812 0.5937 0 0 2.3621 26.48-7 33.281-9.3621 6.8012-35.219-3.7813-35.219-3.7813-2.4454 4.6758-4.2035 9.735-5.1875 15.062 0 0 27.337 6.5995 30.969 17.781 3.6317 11.182-14.25 31.781-14.25 31.781 3.9897 3.6775 8.5391 6.7874 13.5 9.2187 0 0 14.023-23.031 25.469-23.031s25.469 23.031 25.469 23.031c4.9609-2.4313 9.5103-5.5412 13.5-9.2187 0 0-17.882-20.6-14.25-31.781 3.6317-11.182 30.969-17.781 30.969-17.781-0.98402-5.3275-2.7421-10.387-5.1875-15.062 0 0-25.857 10.582-35.219 3.7813-9.3621-6.8012-7-33.281-7-33.281-2.703-0.3845-5.4682-0.5937-8.2812-0.5937z"
+                    transform="matrix(.68164 0 0 .68164 26.08 166.56)" fill="#939393" />
+                  <path id="path5720"
+                    d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z"
+                    transform="matrix(.79653 0 0 .75304 103.45 300.16)" stroke="#939393" stroke-width="3.7108"
+                    fill="none" />
+                  <path id="path6694"
+                    d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z"
+                    transform="matrix(1.4015 0 0 1.3898 -213.6 -218.68)" fill="url(#linearGradient6731)" />
+                  <path id="path6083"
+                    d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z"
+                    transform="matrix(.99517 0 0 .98689 3.7213 109.62)" fill="url(#radialGradient6733)" />
+                  <path id="path6706" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z"
+                    transform="matrix(.68164 0 0 .68164 26.762 165.88)" fill="#5e5b51" />
+                  <path id="path6710" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z"
+                    transform="matrix(.68164 0 0 .68164 8.3573 165.88)" fill="#5e5b51" />
+                  <path id="path6712" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z"
+                    transform="matrix(.68164 0 0 .68164 26.762 183.6)" fill="#5e5b51" />
+                  <path id="path6714" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z"
+                    transform="matrix(.68164 0 0 .68164 8.3573 183.6)" fill="#5e5b51" />
+                </g>
+              </g>
             </g>
-            <path id="path3741" opacity=".72105" stroke-linejoin="round" d="m65.214 935.85c-28.009 0-50.692 22.296-50.692 49.828s22.683 49.881 50.692 49.881 50.746-22.35 50.746-49.881-22.737-49.828-50.746-49.828zm-0.80805 8.3135c23.341 0 42.234 18.625 42.234 41.567 0 22.943-18.894 41.515-42.234 41.515-23.341 0-42.288-18.572-42.288-41.515s18.947-41.567 42.288-41.567z" fill-rule="evenodd" stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0" stroke-width="1.9849"/>
-            <path id="path2977" opacity=".72105" stroke-linejoin="round" d="m65.209 925.56c-33.791 0-61.157 26.9-61.157 60.115s27.366 60.179 61.157 60.179 61.222-26.964 61.222-60.179-27.431-60.115-61.222-60.115zm-0.97486 10.03c28.159 0 50.953 22.47 50.953 50.149s-22.794 50.085-50.953 50.085-51.018-22.406-51.018-50.085 22.859-50.149 51.018-50.149z" fill-rule="evenodd" stroke="#100e0e" stroke-linecap="round" stroke-miterlimit="0" stroke-width="2.3947"/>
-            <path id="path3757" opacity=".44737" stroke-linejoin="round" d="m13.441 41.967c0 9.9627-7.4746 18.039-16.695 18.039s-16.695-8.0764-16.695-18.039c0-9.9627 7.4746-18.039 16.695-18.039s16.695 8.0764 16.695 18.039z" fill-opacity="0" transform="matrix(3.1306 0 0 2.8334 75.34 865.98)" filter="url(#filter3771)" stroke="#fff" stroke-linecap="round" stroke-miterlimit="0" stroke-width="1.056"/>
-          </g>
-          <metadata>
-            <rdf:RDF>
-              <cc:Work>
-                <dc:format>image/svg+xml</dc:format>
-                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-                <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
-                <dc:publisher>
-                  <cc:Agent rdf:about="http://openclipart.org/">
-                    <dc:title>Openclipart</dc:title>
-                  </cc:Agent>
-                </dc:publisher>
-                <dc:title>car-inner-tube</dc:title>
-                <dc:date>2010-07-22T12:52:38</dc:date>
-                <dc:description>automotive clipart by NetAlloy</dc:description>
-                <dc:source>http://openclipart.org/detail/74323/car-inner-tube-by-netalloy</dc:source>
-                <dc:creator>
-                  <cc:Agent>
-                    <dc:title>netalloy</dc:title>
-                  </cc:Agent>
-                </dc:creator>
-                <dc:subject>
-                  <rdf:Bag>
-                    <rdf:li>air</rdf:li>
-                    <rdf:li>automotive</rdf:li>
-                    <rdf:li>car inner tube</rdf:li>
-                    <rdf:li>clip art</rdf:li>
-                    <rdf:li>clipart</rdf:li>
-                    <rdf:li>motor sports</rdf:li>
-                    <rdf:li>puncture</rdf:li>
-                    <rdf:li>tube</rdf:li>
-                    <rdf:li>tyre parts</rdf:li>
-                    <rdf:li>wheel parts</rdf:li>
-                  </rdf:Bag>
-                </dc:subject>
-              </cc:Work>
-              <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
-                <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
-                <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
-                <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
-              </cc:License>
-            </rdf:RDF>
-          </metadata>
-        </svg>
-        <h5 class="mt-3"><b>Tube</b></h5>
-        <p>Our tubes are varied in cost and cover all types of needs.</p>
-      </div>
-      <div class="col-3 text-center px-5 py-4 rounded-4">
-        <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" id="svg6840" viewBox="0 0 144 144" version="1.1">
-          <defs id="defs6842">
-           <linearGradient id="linearGradient6731" y2="814.71" gradientUnits="userSpaceOnUse" x2="543.41" y1="814.71" x1="526.21">
-            <stop id="stop6700" stop-color="#5e5e5e" offset="0"/>
-            <stop id="stop6702" stop-color="#898989" offset="1"/>
-           </linearGradient>
-           <radialGradient id="radialGradient6733" gradientUnits="userSpaceOnUse" cy="814.71" cx="534.81" gradientTransform="matrix(1 0 0 1.0405 0 -33.029)" r="8.5997">
-            <stop id="stop5588-1" stop-color="#252525" offset="0"/>
-            <stop id="stop6687" stop-color="#754110" offset=".20846"/>
-            <stop id="stop6683" stop-color="#563e20" offset=".53041"/>
-            <stop id="stop6685" stop-color="#322f2d" offset=".68624"/>
-            <stop id="stop5590-1" stop-color="#2b2a2a" offset="1"/>
-           </radialGradient>
-          </defs>
-          <g id="layer1" transform="translate(-50.857 -577.5)">
-           <g id="g4074" transform="matrix(1.467 0 0 1.467 -661.4 -550.85)">
-            <g id="g6718" transform="translate(-1.3633 -95.43)">
-             <path id="path3100" d="m591.41 814.67c0 26.859-21.686 48.633-48.438 48.633-26.751 0-48.438-21.774-48.438-48.633s21.686-48.633 48.438-48.633c26.751 0 48.438 21.774 48.438 48.633z" transform="matrix(1.0132 0 0 1.0092 -14.202 91.512)" fill="#1a1a1a"/>
-             <path id="path3870" d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z" transform="matrix(.79653 0 0 .75304 103.45 300.16)" fill="#333"/>
-             <path id="path6716" d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z" transform="matrix(.74566 0 0 .70495 131.08 339.34)" stroke="#7d7d7d" stroke-width="3.7108" fill="none"/>
-             <path id="path6689" d="m748 1041.1c-2.813 0-5.5783 0.2092-8.2812 0.5937 0 0 2.3621 26.48-7 33.281-9.3621 6.8012-35.219-3.7813-35.219-3.7813-2.4454 4.6758-4.2035 9.735-5.1875 15.062 0 0 27.337 6.5995 30.969 17.781 3.6317 11.182-14.25 31.781-14.25 31.781 3.9897 3.6775 8.5391 6.7874 13.5 9.2187 0 0 14.023-23.031 25.469-23.031s25.469 23.031 25.469 23.031c4.9609-2.4313 9.5103-5.5412 13.5-9.2187 0 0-17.882-20.6-14.25-31.781 3.6317-11.182 30.969-17.781 30.969-17.781-0.98402-5.3275-2.7421-10.387-5.1875-15.062 0 0-25.857 10.582-35.219 3.7813-9.3621-6.8012-7-33.281-7-33.281-2.703-0.3845-5.4682-0.5937-8.2812-0.5937z" transform="matrix(.68164 0 0 .68164 26.08 166.56)" fill="#939393"/>
-             <path id="path5720" d="m591.41 814.67c0 27.454-21.686 49.71-48.438 49.71-26.751 0-48.438-22.256-48.438-49.71s21.686-49.71 48.438-49.71c26.751 0 48.438 22.256 48.438 49.71z" transform="matrix(.79653 0 0 .75304 103.45 300.16)" stroke="#939393" stroke-width="3.7108" fill="none"/>
-             <path id="path6694" d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z" transform="matrix(1.4015 0 0 1.3898 -213.6 -218.68)" fill="url(#linearGradient6731)"/>
-             <path id="path6083" d="m543.41 814.71c0 4.942-3.8502 8.9484-8.5997 8.9484s-8.5997-4.0063-8.5997-8.9484 3.8502-8.9484 8.5997-8.9484 8.5997 4.0063 8.5997 8.9484z" transform="matrix(.99517 0 0 .98689 3.7213 109.62)" fill="url(#radialGradient6733)"/>
-             <path id="path6706" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z" transform="matrix(.68164 0 0 .68164 26.762 165.88)" fill="#5e5b51"/>
-             <path id="path6710" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z" transform="matrix(.68164 0 0 .68164 8.3573 165.88)" fill="#5e5b51"/>
-             <path id="path6712" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z" transform="matrix(.68164 0 0 .68164 26.762 183.6)" fill="#5e5b51"/>
-             <path id="path6714" d="m764 1084c0 2.2091-1.7909 4-4 4s-4-1.7909-4-4 1.7909-4 4-4 4 1.7909 4 4z" transform="matrix(.68164 0 0 .68164 8.3573 183.6)" fill="#5e5b51"/>
-            </g>
-           </g>
-          </g>
-          <metadata>
-           <rdf:RDF>
-            <cc:Work>
-             <dc:format>image/svg+xml</dc:format>
-             <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-             <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
-             <dc:publisher>
-              <cc:Agent rdf:about="http://openclipart.org/">
-               <dc:title>Openclipart</dc:title>
-              </cc:Agent>
-             </dc:publisher>
-            </cc:Work>
-            <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
-             <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
-             <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
-             <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
-            </cc:License>
-           </rdf:RDF>
-          </metadata>
-         </svg>
-         <h5 class="mt-3"><b>Rim</b></h5>
-         <p>Our rims are varied in cost and cover all types of needs.</p>
+            <metadata>
+              <rdf:RDF>
+                <cc:Work>
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                  <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+                  <dc:publisher>
+                    <cc:Agent rdf:about="http://openclipart.org/">
+                      <dc:title>Openclipart</dc:title>
+                    </cc:Agent>
+                  </dc:publisher>
+                </cc:Work>
+                <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+                  <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+                </cc:License>
+              </rdf:RDF>
+            </metadata>
+          </svg>
+          <h5 class="mt-3"><b>Rims</b></h5>
+          <p>Our rims are varied in cost and cover all types of needs.</p>
+        </div>
       </div>
     </div>
-  </div>
   </section>
-  <script src="{% static 'website/js/splide.min.js'"></script>
+  <section id="products" class="mt-4 pb-5">
+    <h6><b>What we sell</b></h6>
+    <h2 class="mt-2 mb-4"><b>All Products</b></h2>
+    <div class="splide" role="group" aria-label="Products">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
+              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
+              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Size</p>
+                <p>5</p>
+              </div>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Pattern</p>
+                <p>forward</p>
+              </div>
+              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
+                <button class="btn">Buy</button>
+                <p class="price align-self-center">24.99$</p>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
+              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
+              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Size</p>
+                <p>5</p>
+              </div>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Pattern</p>
+                <p>forward</p>
+              </div>
+              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
+                <button class="btn">Buy</button>
+                <p class="price align-self-center">11.24$</p>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
+              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
+              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Size</p>
+                <p>5</p>
+              </div>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Pattern</p>
+                <p>forward</p>
+              </div>
+              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
+                <button class="btn">Buy</button>
+                <p class="price align-self-center">24.99$</p>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
+              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
+              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Size</p>
+                <p>5</p>
+              </div>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Pattern</p>
+                <p>forward</p>
+              </div>
+              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
+                <button class="btn">Buy</button>
+                <p class="price align-self-center">11.24$</p>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
+              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
+              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Size</p>
+                <p>5</p>
+              </div>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Pattern</p>
+                <p>forward</p>
+              </div>
+              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
+                <button class="btn">Buy</button>
+                <p class="price align-self-center">24.99$</p>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
+              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
+              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Size</p>
+                <p>5</p>
+              </div>
+              <div class="w-100 d-flex justify-content-between">
+                <p>Pattern</p>
+                <p>forward</p>
+              </div>
+              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
+                <button class="btn">Buy</button>
+                <p class="price align-self-center">11.24$</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="partnership" class="my-5 pb-5">
+    <img src="{% static 'website/img/partnership.png' %}" alt="partnership">
+    <div class="text-center">
+      <h1><b>Did you know that you can cooperate with us?</b></h1>
+      <div class="mt-5 d-flex justify-content-center">
+        <p class="text-center">With TireShop's partnership program you can grow your bussiness. Each day many of our
+          affiliates sell their products here. Check out out partnership program and start selling your products now!
+        </p>
+      </div>
+      <button class="btn">Read More</button>
+    </div>
+  </section>
+  <section id="aboutus" class="my-5 py-5 row mx-0">
+    <div class="col-8">
+      <p><b>About Us</b></p>
+      <h1><b>Want to know about our company?<br>Read this article . . .</b></h1>
+      <p class="w-75 mt-5" align="justify">TireShop is all about tires, tubes, and rims. Our work consists of two main
+        branches; we sell a range of tires and related products for vehicles from passenger cars to construction
+        equipment, and we affiliate with people who sell products. If you own a car you can buy your tires from us. We
+        also provide tires and tubes for organizations that need our products in large quantities. But if you are on the
+        other side of the story and want to sell your products, you can simply sign up as a seller and your product to
+        our website.</p>
+    </div>
+    <div class="col-4">
+      <img width="100%" src="{% static 'website/img/aboutus.png' %}" alt="tire and rim">
+    </div>
+  </section>
+  <footer>
+    <div class="row mx-0 pt-5 text-start">
+      <div class="col-3">
+        <h6 class="mb-4"><b>TIRESHOP COMPANY</b></h6>
+        <p class="mb-4 ps-1">TireShop is a company that sells a range of tires and related products for vehicles from
+          passenger cars to construction equipment. This website is specialized towards our e-commerce goals.</p>
+      </div>
+      <div class="col-3">
+        <h6 class="mb-4"><b>QUICK ACCESS</b></h6>
+        <div class="mb-3"><a class="text-decoration-none p-1">Products</a></div>
+        <div class="mb-3"><a class="text-decoration-none p-1">Affiliate program</a></div>
+        <div class="mb-3"><a class="text-decoration-none p-1">About us</a></div>
+      </div>
+      <div class="col-3">
+        <h6 class="mb-4"><b>POLICIES</b></h6>
+        <div class="mb-3"><a class="text-decoration-none p-1">Terms of Service</a></div>
+        <div class="mb-3"><a class="text-decoration-none p-1">Privacy and Security</a></div>
+        <div class="mb-3"><a class="text-decoration-none p-1">Accounts</a></div>
+      </div>
+      <div class="col-3">
+        <h6 class="mb-4"><b>FOLLOW OUR SOCIALS</b></h6>
+        <p class="mb-4 ps-1">Be the first one to here our news and get to know us better.</p>
+        <div class="d-flex justify-content-between">
+          <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.0003 0.654297C8.84011 0.654297 8.44352 0.668115 7.20235 0.7246C5.9636 0.781327 5.11805 0.977448 4.37819 1.26521C3.61288 1.56242 2.96369 1.95999 2.31692 2.60702C1.66967 3.25381 1.2721 3.90302 0.973929 4.66811C0.685453 5.40824 0.489096 6.25405 0.43334 7.49236C0.377826 8.73357 0.363281 9.13042 0.363281 12.2907C0.363281 15.4509 0.377342 15.8463 0.433582 17.0875C0.49055 18.3263 0.686666 19.1719 0.974172 19.9117C1.27162 20.6771 1.66918 21.3263 2.31619 21.9731C2.96272 22.6204 3.61191 23.0189 4.37674 23.3161C5.11708 23.6039 5.96287 23.8 7.20138 23.8567C8.44255 23.9132 8.8389 23.927 11.9988 23.927C15.1592 23.927 15.5546 23.9132 16.7958 23.8567C18.0345 23.8 18.881 23.6039 19.6214 23.3161C20.3864 23.0189 21.0347 22.6204 21.6812 21.9731C22.3284 21.3263 22.726 20.6771 23.0242 19.912C23.3102 19.1719 23.5066 18.3261 23.5648 17.0878C23.6205 15.8465 23.6351 15.4509 23.6351 12.2907C23.6351 9.13042 23.6205 8.73381 23.5648 7.4926C23.5066 6.25381 23.3102 5.40824 23.0242 4.66836C22.726 3.90302 22.3284 3.25381 21.6812 2.60702C21.0339 1.95975 20.3867 1.56218 19.6206 1.26521C18.8788 0.977448 18.0328 0.781327 16.7941 0.7246C15.5529 0.668115 15.1577 0.654297 11.9966 0.654297H12.0003ZM10.9564 2.75127C11.2662 2.75078 11.6119 2.75127 12.0003 2.75127C15.1071 2.75127 15.4753 2.76242 16.7022 2.81818C17.8367 2.87005 18.4524 3.05963 18.8626 3.2189C19.4056 3.42981 19.7928 3.68193 20.1998 4.08921C20.607 4.49648 20.8591 4.88436 21.0705 5.42739C21.2298 5.83708 21.4196 6.45284 21.4712 7.58739C21.527 8.81405 21.5391 9.18254 21.5391 12.288C21.5391 15.3934 21.527 15.7619 21.4712 16.9886C21.4194 18.1231 21.2298 18.7389 21.0705 19.1486C20.8596 19.6916 20.607 20.0783 20.1998 20.4853C19.7925 20.8926 19.4059 21.1447 18.8626 21.3556C18.4529 21.5156 17.8367 21.7047 16.7022 21.7566C15.4756 21.8124 15.1071 21.8245 12.0003 21.8245C8.8932 21.8245 8.52497 21.8124 7.29834 21.7566C6.16383 21.7042 5.54809 21.5147 5.13768 21.3554C4.59467 21.1445 4.2068 20.8924 3.79954 20.4851C3.39228 20.0778 3.14017 19.6909 2.92878 19.1476C2.76951 18.7379 2.5797 18.1222 2.52806 16.9876C2.47231 15.761 2.46116 15.3925 2.46116 12.2851C2.46116 9.17769 2.47231 8.81115 2.52806 7.58448C2.57994 6.44993 2.76951 5.83418 2.92878 5.42399C3.13968 4.88096 3.39228 4.49308 3.79954 4.08581C4.2068 3.67854 4.59467 3.42642 5.13768 3.21502C5.54785 3.05502 6.16383 2.86593 7.29834 2.81381C8.37177 2.76533 8.78775 2.75078 10.9564 2.74836V2.75127ZM18.2115 4.68339C17.4406 4.68339 16.8151 5.30811 16.8151 6.07927C16.8151 6.85018 17.4406 7.47563 18.2115 7.47563C18.9824 7.47563 19.6078 6.85018 19.6078 6.07927C19.6078 5.30836 18.9824 4.6829 18.2115 4.6829V4.68339ZM12.0003 6.3149C8.70024 6.3149 6.02469 8.99054 6.02469 12.2907C6.02469 15.5908 8.70024 18.2652 12.0003 18.2652C15.3003 18.2652 17.9749 15.5908 17.9749 12.2907C17.9749 8.99054 15.3 6.3149 12 6.3149H12.0003ZM12.0003 8.41187C14.1423 8.41187 15.8789 10.1484 15.8789 12.2907C15.8789 14.4327 14.1423 16.1694 12.0003 16.1694C9.85802 16.1694 8.12159 14.4327 8.12159 12.2907C8.12159 10.1484 9.85802 8.41187 12.0003 8.41187V8.41187Z"
+                fill="white" />
+            </svg></a>
+          <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2.27539 0.957031C1.38683 0.957031 0.666504 1.67735 0.666504 2.56592V22.0148C0.666504 22.9033 1.38683 23.6236 2.27539 23.6236H21.7243C22.6128 23.6236 23.3332 22.9033 23.3332 22.0148V2.56592C23.3332 1.67735 22.6128 0.957031 21.7243 0.957031H2.27539ZM5.75413 7.99617C6.8401 7.99617 7.72046 7.11582 7.72046 6.02985C7.72046 4.94387 6.8401 4.06352 5.75413 4.06352C4.66816 4.06352 3.7878 4.94387 3.7878 6.02985C3.7878 7.11582 4.66816 7.99617 5.75413 7.99617ZM9.52128 9.44935H12.7801V10.9422C12.7801 10.9422 13.6644 9.17357 16.0706 9.17357C18.217 9.17357 19.995 10.2309 19.995 13.4538V20.25H16.6179V14.2774C16.6179 12.3761 15.6029 12.167 14.8295 12.167C13.2243 12.167 12.9495 13.5516 12.9495 14.5254V20.25H9.52128V9.44935ZM7.46823 9.44936H4.04003V20.2501H7.46823V9.44936Z"
+                fill="white" />
+            </svg></a>
+          <a href="#"><svg width="25" height="23" viewBox="0 0 25 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M22.3625 6.07521C22.3715 6.30839 22.3745 6.54147 22.3745 6.77466C22.3745 13.8443 17.4014 22.0057 8.30731 22.0057C5.51376 22.0057 2.91616 21.1153 0.727539 19.5997C1.11442 19.6421 1.50733 19.6739 1.90626 19.6739C4.2225 19.6739 6.35585 18.8152 8.04805 17.3738C5.88456 17.342 4.05771 15.7839 3.42765 13.6641C3.73012 13.7277 4.04161 13.7596 4.36015 13.7596C4.80933 13.7596 5.24544 13.696 5.66347 13.5688C3.39949 13.0813 1.69423 10.9191 1.69423 8.32234C1.69423 8.29054 1.69423 8.27988 1.69423 8.25868C2.36147 8.65085 3.12516 8.89451 3.9361 8.9263C2.60765 7.96179 1.73441 6.31897 1.73441 4.46412C1.73441 3.48901 1.97759 2.56684 2.40566 1.77191C4.84349 5.01524 8.4882 7.14569 12.5971 7.36827C12.5127 6.9761 12.4695 6.56284 12.4695 6.14947C12.4695 3.19232 14.6832 0.796875 17.4145 0.796875C18.8364 0.796875 20.1206 1.44351 21.022 2.48223C22.1504 2.24905 23.2076 1.80391 24.1642 1.18917C23.7934 2.43986 23.0106 3.48895 21.9877 4.1461C22.9885 4.01891 23.9432 3.73295 24.8285 3.30899C24.1642 4.3795 23.3282 5.32267 22.3625 6.07521Z"
+                fill="white" />
+            </svg></a>
+          <a href="#"><svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.5641 1.11927C25.7206 1.43063 26.6325 2.34249 26.9439 3.49899C27.5221 5.61183 27.4999 10.0154 27.4999 10.0154C27.4999 10.0154 27.4999 14.3968 26.9439 16.5096C26.6325 17.6661 25.7206 18.578 24.5641 18.8894C22.4513 19.4454 13.9999 19.4454 13.9999 19.4454C13.9999 19.4454 5.57082 19.4454 3.43574 18.8671C2.27923 18.5558 1.36738 17.6439 1.05601 16.4874C0.5 14.3968 0.5 9.9932 0.5 9.9932C0.5 9.9932 0.5 5.61183 1.05601 3.49899C1.36738 2.34249 2.30148 1.40839 3.43574 1.09703C5.54858 0.541016 13.9999 0.541016 13.9999 0.541016C13.9999 0.541016 22.4513 0.541016 24.5641 1.11927ZM18.3368 9.83877L11.3088 13.8865V5.79102L18.3368 9.83877Z"
+                fill="white" />
+            </svg></a>
+          <a href="#"><svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.4341 0.774913L1.16865 8.20565C-0.146251 8.73321 -0.138452 9.46661 0.928979 9.79363L5.73385 11.2933L7.5723 16.9299C7.79581 17.5468 7.68563 17.7915 8.33346 17.7915C8.83341 17.7915 9.05519 17.5636 9.33364 17.2915C9.51071 17.1183 10.562 16.0961 11.7359 14.9548L16.7339 18.6475C17.6536 19.1549 18.3177 18.8921 18.5467 17.7934L21.8274 2.33306C22.1633 0.986396 21.314 0.375556 20.4341 0.774913ZM6.48792 10.9488L17.3181 4.11593C17.8588 3.78805 18.3545 3.96433 17.9475 4.32562L8.67401 12.6927L8.31293 16.5438L6.48792 10.9488V10.9488Z"
+                fill="white" />
+            </svg></a>
+          <a href="#"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'website/js/splide.min.js' %}"></script>
   <script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'website/js/index.js' %}"></script>
 </body>
 
 </html>
