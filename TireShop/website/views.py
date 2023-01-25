@@ -30,9 +30,21 @@ def log_in(request):  # avoid shadowing django's "login" function
     return render(request, 'website/login.html', {})
 
 
-def product_page(request):
-    return render(request, 'website/product_page.html', {})        
+def product(request):
+    return render(request, 'website/product.html', {})        
 
 
 def products(request):
     return render(request, 'website/products.html', {})            
+
+def seller(request):
+    return HttpResponseRedirect('/seller/dashboard')
+
+def seller_dashboard(request):
+    return render(request, 'website/seller.dashboard.html', {})
+
+def seller_products(request):
+    return render(request, 'website/seller.products.html', {})
+
+def seller_addproduct(request):
+    return render(request, 'website/seller.addproduct.html', {})

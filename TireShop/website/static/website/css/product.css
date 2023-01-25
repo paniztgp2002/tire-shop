@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+body {
+  background-color: #1D1D1F;
+  color: white;
+  font-family: 'Poppins';
+}
+
+.navbar {
+  margin-top: 20px;
+  background-color: rgb(53, 51, 64);
+}
+
+.navbar-brand:hover b {
+  color: #5BC8C5;
+  transition: 0.3s;
+}
+
+.navbar-brand b {
+  font-size: medium;
+  transition: 0.3s;
+  color: white;
+}
+
+#nav-svgs svg {
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+#nav-svgs svg:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #5BC8C5;
+  color: #191C1B;
+}
+
+.btn:hover {
+  background-color: #399e9a;
+  color: #191C1B;
+}
+
+
+
+
+
+footer {
+  background-color: #0C0C0C;
+}
+
+footer p {
+  font-size: 14px;
+  padding-right: 15px;;
+}
+
+footer .row {
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+footer a {
+  color: white;
+  transition: 0.4s;
+}
+
+footer a:hover {
+  color: #5BC8C5;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+footer a:hover svg path {
+  fill: #5BC8C5;
+  transition: 0.4s;
+}
+
+footer a svg path {
+  fill: white;
+  transition: 0.4s;
+}

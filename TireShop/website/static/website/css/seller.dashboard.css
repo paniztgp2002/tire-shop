@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+body {
+    background-color: #1D1D1F;
+    color: white;
+    font-family: 'Poppins';
+}
+
+.navbar {
+    margin-top: 20px;
+    background-color: rgb(53, 51, 64);
+}
+
+.navbar-brand:hover b {
+    color: #5BC8C5;
+    transition: 0.3s;
+}
+
+.navbar-brand b {
+    font-size: medium;
+    transition: 0.3s;
+    color: white;
+}
+
+#nav-svgs svg {
+    transform: scale(1);
+    transition: 0.5s;
+}
+
+#nav-svgs svg:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+body>.container-fluid {
+    height: 88vh;
+}
+
+#side-panel {
+    background-color: #353340;
+}
+
+#balance {
+    color: #5BC8C5;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+#side-panel h6 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#side-panel a {
+    transition: 0.2s;
+    color: white;
+}
+
+#side-panel a.myactive, #side-panel a.myactive h6 {
+    background-color: #5BC8C5;
+    color: #191C1B;
+}
+
+#side-panel a:hover {
+    background-color: #3c3a47;
+    transition: 0.2s;
+}
+
+#side-panel a.myactive:hover {
+    background-color: #5BC8C5;
+}
+
+.badge {
+    background-color: #353340;
+}
+
+.badge h6 {
+    font-weight: 600;
+}
+
+.product {
+    width: 100%;
+    background-color: #353340;
+    border-radius: 20px;
+}
+
+.product .price {
+    font-weight: 700;
+    font-size: 20px;
+    color: #5BC8C5;
+    margin: 0;
+}
+
+
+.product .btn {
+    width: 120px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #5BC8C5;
+    color: #191C1B;
+}
+
+.product .btn:hover {
+    background-color: #399e9a;
+    color: #191C1B;
+}
+
+footer {
+    background-color: #0C0C0C;
+}
+
+footer p {
+    font-size: 14px;
+    padding-right: 15px;
+    ;
+}
+
+footer .row {
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+footer a {
+    color: white;
+    transition: 0.4s;
+}
+
+footer a:hover {
+    color: #5BC8C5;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+footer a:hover svg path {
+    fill: #5BC8C5;
+    transition: 0.4s;
+}
+
+footer a svg path {
+    fill: white;
+    transition: 0.4s;
+}
