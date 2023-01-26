@@ -97,20 +97,19 @@ class Rim(models.Model):
         return "rim"
 
 
-
-# class Organization(models.Model):    
-#     name = models.CharField(max_length=50)
-
-
-# class Deal(models.Model):
-#     datetime = models.DateField(auto_now_add=False)
-#     seald = models.BooleanField()
+class Organization(models.Model):    
+    name = models.CharField(max_length=50)
 
 
-# class DealContainsProduct(models.Model):
-#     quantity = models.IntegerField(default=1)
-#     deal_id = models.IntegerField()
-#     product_id = models.IntegerField()
+class Deal(models.Model):
+    datetime = models.DateField(auto_now_add=False)
+    seald = models.BooleanField()
+
+
+class DealContainsProduct(models.Model):
+    quantity = models.IntegerField(default=1)
+    deal_id = models.IntegerField()
+    product_id = models.IntegerField()
 
 
 type_models = {"tire": Tire, "tube": Tube, "rim": Rim}
