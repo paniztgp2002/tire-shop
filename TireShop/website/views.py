@@ -251,9 +251,10 @@ def customer_cart(request):
                 cart.save()
                 new_cart.save()
                 cart_products = CartContainsProduct.objects.filter(cart_id=cart.id)
-                for product in cart_products:
+                for product_cart in cart_products:
+                    product = type_models[product_cart.type].objects.get(id=product_cart.product_id)
                     seller = Seller.objects.get(id=product.seller_id)
-                    seller.balance += product.totalprice()
+                    seller.balance += product_cart.totalprice()
                     seller.save()
                 return HttpResponseRedirect("/customer/dashboard")
             return HttpResponseNotFound("not enough balance")
