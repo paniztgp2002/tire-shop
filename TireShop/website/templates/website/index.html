@@ -579,114 +579,26 @@
     <div class="splide" role="group" aria-label="Products">
       <div class="splide__track">
         <ul class="splide__list">
+          {% for product in products %}
           <li class="splide__slide">
             <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
+              <img class="mx-5 w-75" src="{% static 'website/img/'|add:product.img|add:'.png' %}" alt="{{ product.img }}">
+              <p class="mt-4 w-100"><b>{{ product.name }}</b></p>
               <div class="w-100 d-flex justify-content-between">
                 <p>Size</p>
-                <p>5</p>
+                <p>{{ product.name }}</p>
               </div>
               <div class="w-100 d-flex justify-content-between">
                 <p>Pattern</p>
-                <p>forward</p>
+                <p>{{ product.pattern }}</p>
               </div>
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
+                <a href="/product/{{ product.img }}/{{ product.id }}"><button class="btn btn-secondary">Buy</button></a>
+                <p class="price align-self-center">{{ product.price }}$</p>
               </div>
             </div>
           </li>
-          <li class="splide__slide">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">11.24$</p>
-              </div>
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">11.24$</p>
-              </div>
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </li>
-          <li class="splide__slide">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">11.24$</p>
-              </div>
-            </div>
-          </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -700,7 +612,7 @@
           affiliates sell their products here. Check out out partnership program and start selling your products now!
         </p>
       </div>
-      <button class="btn btn-fill">Read More</button>
+      <a href="/seller/dashboard/"><button class="btn btn-secondary btn-fill">Read More</button></a>
     </div>
   </section>
   <section id="aboutus" class="my-5 py-5 row mx-0">

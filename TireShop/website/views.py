@@ -34,7 +34,19 @@ def index(request):
             return HttpResponseRedirect(redirect_url)
     else:
         form = SearchForm()
-    return render(request, 'website/index.html', {"form": form})
+
+    tires = Tire.objects.all().order_by('?')
+    if len(tires) > 5:
+        tires = tires[:5]
+    tubes = Tube.objects.all().order_by('?')
+    if len(tubes) > 5:
+        tubes = tubes[:5]
+    rims = Rim.objects.all().order_by('?')
+    if len(rims) > 5:
+        rims = rims[:5]
+    products = chain(tires, tubes, rims)
+
+    return render(request, 'website/index.html', {"form": form, "products": products})
 
 def signup(request):
     if request.user.is_authenticated:
