@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tire Shop - Product name</title>
 	<link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
-	<link href="{% static 'website/css/seller.dashboard.css' %}" rel="stylesheet">
+	<link href="{% static 'website/css/customer.cart.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -228,16 +228,16 @@
 						<g id="Layer_2">
 						</g>
 					</svg></div>
-				<div class="text-center mt-3">Seller Name</div>
+				<div class="text-center mt-3">{{ customer.name }}</div>
 				<div class="text-center mt-1 mb-0">
-					<p class="mb-1">username placeholder</p>
+					<p class="mb-1">{{ customer.phone_number }}</p>
 					<div id="balance" class="px-5 py-0 m-0 d-flex justify-content-between">
 						<p class="m-0">balance</p>
-						<p>10000 T</p>
+						<p>{{ customer.balance }} T</p>
 					</div>
 				</div>
 				<div class="mx-1 mt-3">
-					<a href="dashboard" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
+					<a href="../dashboard" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
 						<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="45" height="45" rx="10" fill="#353340" />
 							<path opacity="0.4"
@@ -257,7 +257,7 @@
 					</a>
 				</div>
 				<div class="mx-1 mt-2">
-					<a href="products" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
+					<a href="../cart" class="text-decoration-none d-flex align-items-center rounded-4 p-2 myactive">
 						<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="45" height="45" rx="10" fill="#353340" />
 							<path opacity="0.4"
@@ -273,11 +273,11 @@
 								d="M20.5 29.77V25.73C20.5 24.14 19.86 23.5 18.27 23.5H14.23C12.64 23.5 12 24.14 12 25.73V29.77C12 31.36 12.64 32 14.23 32H18.27C19.86 32 20.5 31.36 20.5 29.77Z"
 								fill="#F2F2F2" />
 						</svg>
-						<h6 class="m-0 ms-2">My Products</h6>
+						<h6 class="m-0 ms-2">Cart</h6>
 					</a>
 				</div>
 				<div class="mx-1 mt-2">
-					<a href="#" class="text-decoration-none d-flex align-items-center rounded-4 p-2 myactive">
+					<a href="../purchases" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
 						<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="45" height="45" rx="10" fill="#353340" />
 							<path opacity="0.4"
@@ -290,7 +290,7 @@
 								d="M25.5799 21.58C25.5799 23.56 23.9799 25.17 21.9999 25.17C20.0199 25.17 18.4199 23.56 18.4199 21.58C18.4199 19.6 20.0199 18 21.9999 18C23.9799 18 25.5799 19.6 25.5799 21.58Z"
 								fill="#F2F2F2" />
 						</svg>
-						<h6 class="m-0 ms-2">Add Product</h6>
+						<h6 class="m-0 ms-2">My Purchases</h6>
 					</a>
 				</div>
 				<div class="mx-1 mt-2">
@@ -314,73 +314,55 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-9 d-flex flex-column p-5 h-100 rounded-4">
-				<form class="d-flex flex-column p-0 m-0" action="/seller/addproduct" method="post">
+			<div class="col-9 d-flex flex-column ps-4 pt-0 pe-0 pb-5 h-100 rounded-4">
+				<h4 class="mt-2 mb-3"><b>Finalize your purchase</b></h4>
+				<div id="table-cont" class="mb-4 p-0">
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th class="text-center" scope="col">#</th>
+								<th scope="col">Name</th>
+								<th class="text-center" scope="col">Quantity</th>
+								<th scope="col">Price per One</th>
+								<th scope="col">Total Price</th>
+								<th class="text-center" scope="col">Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for product in ccp %}
+							<tr>
+								<th class="text-center" scope="row">{{ forloop.counter }}</th>
+								<td>{{ product.name }}</td>
+								<td class="text-center">{{ product.quantity }}</td>
+								<td>{{ product.price }}</td>
+								<td>{{ product.totalprice }}</td>
+								<td class="text-center"><button class="btn btn-danger py-0 px-2 m-0"><b>-</b></button></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<h5><b>Order total: </b>${{ cart.totalprice }}</h5>
+				<form action="" method="post">
 				{% csrf_token %}
-				<div class="row mb-5">
+				<div class="row my-3">
 					<div class="col-4">
 						<div class="form-floating">
-							<select required name="type" class="form-select bg-dark text-light" id="type">
-								<option value="tire" selected>Tire</option>
-								<option value="tube">Tube</option>
-								<option value="rim">Rim</option>
-							</select>
-							<label for="type">Product Type</label>
+							<input name="address" class="form-control bg-dark text-light rounded-4" id="address" placeholder="address" value="{{ address }}">
+							<label for="address">Address</label>
 						</div>
 					</div>
 					<div class="col-4">
 						<div class="form-floating">
-							{{ form.name }}
-							<label for="id_name">Product Name</label>
+							<input name="postcode" class="form-control bg-dark text-light rounded-4" id="postcode" type="number" placeholder="postcode" value="{{ postcode }}">
+							<label for="postcode">Postal Code</label>
 						</div>
 					</div>
-					<div class="col-4">
-						<div class="form-floating">
-							{{ form.brand }}
-							<label for="id_brand">Product Brand</label>
-						</div>
+					<div class="col-4 text-center">
+						<button type="submit" class="btn btn-success h-100 w-100 rounded-4"><b>Submit Payment</b></button>
 					</div>
 				</div>
-				<div class="form-floating">
-					{{ form.description}}
-					<label for="id_description">Description</label>
-				</div>
-				<div class="row justify-content-center mt-5">
-					<div class="col-4">
-						<div class="form-floating">
-							{{ form.size }}
-							<label for="id_size">Size</label>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="form-floating">
-							{{ form.layer }}
-							<label for="id_layer">Layers</label>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="form-floating">
-							{{ form.pattern }}
-							<label for="id_pattern">Pattern</label>
-						</div>
-					</div>
-				</div>
-				<div class="row justify-content-center my-5">
-					<div class="col-4">
-						<div class="form-floating">
-							{{ form.quantity }}
-							<label for="id_size">Quantity</label>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="form-floating">
-							{{ form.price }}
-							<label for="id_layer">Price</label>
-						</div>
-					</div>
-				</div>
-				<button type="submit" class="btn btn-secondary p-3 mx-5">Add Product</button>
-				</form>
+			</form>
 			</div>
 		</div>
 	</div>
@@ -440,7 +422,7 @@
 		</div>
 	</footer>
 	<script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
-	<script src="{% static 'website/js/seller.addproduct.js' %}"></script>
+	<script src="{% static 'website/js/customer.dashboard.js' %}"></script>
 </body>
 
 </html>

@@ -167,7 +167,7 @@
 						<path
 							d="M27.3464 11.6667H6.89308C6.33308 11.6667 5.87975 12.0934 5.82641 12.6401L5.34641 18.4401C5.15975 20.7067 6.94642 22.6667 9.22642 22.6667H24.0531C26.0531 22.6667 27.8131 21.0268 27.9598 19.0268L28.3998 12.8001C28.4531 12.1868 27.9731 11.6667 27.3464 11.6667Z"
 							fill="#5BC8C5" />
-					</svg></a><a href="login"><svg width="32" height="32" viewBox="0 0 24 24" fill="45f3ff"
+					</svg></a><a href="/login"><svg width="32" height="32" viewBox="0 0 24 24" fill="45f3ff"
 						xmlns="http://www.w3.org/2000/svg">
 						<path opacity="0.4"
 							d="M12 22.01C17.5228 22.01 22 17.5329 22 12.01C22 6.48715 17.5228 2.01 12 2.01C6.47715 2.01 2 6.48715 2 12.01C2 17.5329 6.47715 22.01 12 22.01Z"
@@ -238,7 +238,7 @@
 					</div>
 				</div>
 				<div class="mx-1 mt-3">
-					<a href="#" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
+					<a href="dashboard" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
 						<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="45" height="45" rx="10" fill="#353340" />
 							<path opacity="0.4"
@@ -278,7 +278,7 @@
 					</a>
 				</div>
 				<div class="mx-1 mt-2">
-					<a href="#" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
+					<a href="addproduct" class="text-decoration-none d-flex align-items-center rounded-4 p-2">
 						<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="45" height="45" rx="10" fill="#353340" />
 							<path opacity="0.4"
@@ -320,114 +320,20 @@
 					<div id="splide" class="splide" role="group" aria-label="Products">
 						<div class="splide__track">
 							<ul class="splide__list">
+								{% for product in products %}
 								<li class="splide__slide">
 									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
+										<img class="mx-5 w-50" src="{% static 'website/img/'|add:product.img|add:'.png' %}" alt="{{ product.img }}">
 										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
+											<p class="m-0 w-100"><b>{{ product.name }}</b></p>
+											<p class="price align-self-center m-0">{{ product.price }}$</p>
 										</div>
 										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
+											<a href="/product/{{ product.img }}/{{ product.id }}"><button class="btn">Details</button></a>
 										</div>
 									</div>
 								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
-								<li class="splide__slide">
-									<div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-										<img class="mx-5 w-50" src="{% static 'website/img/tube.png' %}" alt="tube">
-										<div class="d-flex w-100 my-3 justify-content-between align-items-center">
-											<p class="m-0 w-100"><b>Tube model Bluh</b></p>
-											<p class="price align-self-center m-0">24.99$</p>
-										</div>
-										<div class="mt-2 w-100 d-flex justify-content-center align-items-center">
-											<button class="btn">Details</button>
-										</div>
-									</div>
-								</li>
+								{% endfor %}
 							</ul>
 						</div>
 					</div>

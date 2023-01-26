@@ -115,7 +115,9 @@ body {
 }
 
 #size-from,
-#size-till {
+#size-till,
+#price-from,
+#price-till {
     background-color: #353340;
     border: 2px solid #828282;
     border-radius: 12px;
@@ -161,6 +163,7 @@ body {
 .filter {
     background-color: #5BC8C5;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .filter>p {

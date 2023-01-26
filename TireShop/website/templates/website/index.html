@@ -144,7 +144,7 @@
         </a>
       </div>
       <div id="nav-svgs">
-        <a href="/" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+        <a href="#" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.4"
               d="M15.3332 28.0003C22.3288 28.0003 27.9998 22.3293 27.9998 15.3337C27.9998 8.33805 22.3288 2.66699 15.3332 2.66699C8.33756 2.66699 2.6665 8.33805 2.6665 15.3337C2.6665 22.3293 8.33756 28.0003 15.3332 28.0003Z"
@@ -152,7 +152,7 @@
             <path
               d="M28.3999 29.3337C28.1599 29.3337 27.9199 29.2404 27.7466 29.0671L25.2666 26.5871C24.9066 26.2271 24.9066 25.6404 25.2666 25.2671C25.6266 24.9071 26.2132 24.9071 26.5866 25.2671L29.0666 27.7471C29.4266 28.1071 29.4266 28.6937 29.0666 29.0671C28.8799 29.2404 28.6399 29.3337 28.3999 29.3337Z"
               fill="#5BC8C5" />
-          </svg></a><a href="/" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+          </svg></a><a href="/customer/cart" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M21.6668 29.9999C22.9555 29.9999 24.0002 28.9552 24.0002 27.6666C24.0002 26.3779 22.9555 25.3333 21.6668 25.3333C20.3782 25.3333 19.3335 26.3779 19.3335 27.6666C19.3335 28.9552 20.3782 29.9999 21.6668 29.9999Z"
@@ -166,7 +166,7 @@
             <path
               d="M27.3464 11.6667H6.89308C6.33308 11.6667 5.87975 12.0934 5.82641 12.6401L5.34641 18.4401C5.15975 20.7067 6.94642 22.6667 9.22642 22.6667H24.0531C26.0531 22.6667 27.8131 21.0268 27.9598 19.0268L28.3998 12.8001C28.4531 12.1868 27.9731 11.6667 27.3464 11.6667Z"
               fill="#5BC8C5" />
-          </svg></a><a href="login"><svg width="32" height="32" viewBox="0 0 24 24" fill="45f3ff"
+          </svg></a><a href="/login"><svg width="32" height="32" viewBox="0 0 24 24" fill="45f3ff"
             xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.4"
               d="M12 22.01C17.5228 22.01 22 17.5329 22 12.01C22 6.48715 17.5228 2.01 12 2.01C6.47715 2.01 2 6.48715 2 12.01C2 17.5329 6.47715 22.01 12 22.01Z"
@@ -193,6 +193,8 @@
         <button onclick="selectGroupFunc('tubes')" id="tubes-btn" type="button" class="btn">Tubes</button>
         <button onclick="selectGroupFunc('rims')" id="rims-btn" type="button" class="btn">Rims</button>
       </div>
+      <form id="search-form" class="m-0 p-0" action="/" method="post">
+        {% csrf_token %}
       <div class="d-flex justify-content-center">
         <div id="search-box" class="d-flex justify-content-start align-items-center">
           <svg class="ms-3 me-2" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -203,7 +205,7 @@
             <path d="M20.9999 21.0004L16.6499 16.6504" stroke="#5BC8C5" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-          <input class="flex-grow-1" type="text" placeholder="Search among our products">
+          <input name="name" required class="flex-grow-1" type="text" placeholder="Search among our products">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M15.59 1.75C12.62 1.75 10.21 4.16 10.21 7.13C10.21 10.1 12.62 12.51 15.59 12.51C18.56 12.51 20.97 10.1 20.97 7.13C20.97 4.16 18.56 1.75 15.59 1.75Z"
@@ -215,8 +217,8 @@
               d="M16.6201 16.6201C15.0701 16.6201 13.8101 17.8801 13.8101 19.4301C13.8101 20.9801 15.0701 22.2401 16.6201 22.2401C18.1701 22.2401 19.4301 20.9801 19.4301 19.4301C19.4301 17.8801 18.1701 16.6201 16.6201 16.6201Z"
               fill="#5BC8C5" />
           </svg>
-          <select class="ms-1 me-1">
-            <option selected>Size</option>
+          <select name="size" class="ms-1 me-1">
+            <option value="0" selected>Size</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -236,16 +238,17 @@
               d="M19.17 15.9802C18.2 13.2002 15.58 11.3302 12.63 11.3302C12.62 11.3302 12.61 11.3302 12.6 11.3302L9.07 11.3402C7.55 11.3602 6.19 10.3302 5.78 8.85023V7.00023C5.78 6.58023 5.44 6.24023 5.01 6.24023C4.58 6.24023 4.25 6.58023 4.25 7.00023V18.2202C4.25 18.6402 4.59 18.9802 5.01 18.9802C5.43 18.9802 5.78 18.6402 5.78 18.2202V11.6002C6.66 12.3802 7.81 12.8602 9.06 12.8602C9.07 12.8602 9.07 12.8602 9.08 12.8602L12.61 12.8502C12.62 12.8502 12.62 12.8502 12.63 12.8502C14.92 12.8502 16.97 14.3002 17.72 16.4702C17.83 16.7902 18.13 16.9802 18.44 16.9802C18.52 16.9802 18.61 16.9702 18.69 16.9402C19.1 16.8202 19.31 16.3802 19.17 15.9802Z"
               fill="#5BC8C5" />
           </svg>
-          <select id="pattern-select" class="me-3">
-            <option selected>Pattern
-            </option>
+          <select name="pattern" id="pattern-select" class="me-3">
+            <option value="0" selected>Pattern</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
-          <button class="btn btn-secondary" type="submit">Search</button>
+          <button id="search-submit" class="btn btn-secondary">Search</button>
         </div>
       </div>
+      <input type="text" name="type" id="type">
+    </form>
     </div>
   </section>
   <section id="product-types" class="mt-5 py-5">
@@ -564,8 +567,15 @@
     </div>
   </section>
   <section id="products" class="mt-4 pb-5">
-    <h6><b>What we sell</b></h6>
-    <h2 class="mt-2 mb-4"><b>All Products</b></h2>
+    <div class="mx-3 mb-4 d-flex justify-content-between align-items-center">
+      <div>
+        <h6><b>What we sell</b></h6>
+        <h2 class="mt-2"><b>All Products</b></h2>
+      </div>
+      <div>
+        <a href="/products"><button class="btn btn-outline-secondary px-5 text-light me-2">View All</button></a>
+      </div>
+    </div>
     <div class="splide" role="group" aria-label="Products">
       <div class="splide__track">
         <ul class="splide__list">
@@ -690,13 +700,13 @@
           affiliates sell their products here. Check out out partnership program and start selling your products now!
         </p>
       </div>
-      <button class="btn">Read More</button>
+      <button class="btn btn-fill">Read More</button>
     </div>
   </section>
   <section id="aboutus" class="my-5 py-5 row mx-0">
     <div class="col-8">
       <p><b>About Us</b></p>
-      <h1><b>Want to know about our company?<br>Read this article . . .</b></h1>
+      <h1><b>Want to know about our company?<br>Read this . . .</b></h1>
       <p class="w-75 mt-5" align="justify">TireShop is all about tires, tubes, and rims. Our work consists of two main
         branches; we sell a range of tires and related products for vehicles from passenger cars to construction
         equipment, and we affiliate with people who sell products. If you own a car you can buy your tires from us. We

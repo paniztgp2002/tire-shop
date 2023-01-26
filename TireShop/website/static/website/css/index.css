@@ -44,14 +44,14 @@ body {
     position: fixed;
 }
 
-.btn {
+.btn-fill {
     font-weight: 600;
     font-size: 16px;
     background-color: #5BC8C5;
     color: #191C1B;
 }
 
-.btn:hover {
+.btn-fill:hover {
     background-color: #399e9a;
     color: #191C1B;
 }
@@ -114,6 +114,10 @@ body {
 
 #search-box input:focus {
     outline: none;
+}
+
+#type {
+    visibility: hidden;
 }
 
 #search-box button {
@@ -186,6 +190,10 @@ body {
     padding-right: 4%;
 }
 
+#all-btn {
+    background-color: #5BC8C5;
+}
+
 .product {
     width: 295px;
     height: 455px;
@@ -197,6 +205,10 @@ body {
 .product .btn {
     width: 120px;
     height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #5BC8C5;
+    color: #191C1B;
 }
 
 .product .price {

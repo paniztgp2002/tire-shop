@@ -73,50 +73,17 @@ body>.container-fluid {
     background-color: #5BC8C5;
 }
 
-.badge {
-    background-color: #353340;
+#table-cont {
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.badge h6 {
-    font-weight: 600;
-}
-
-.product {
-    width: 100%;
-    background-color: #353340;
-    border-radius: 20px;
-}
-
-.product .price {
-    font-weight: 700;
-    font-size: 20px;
+.col-9 a {
     color: #5BC8C5;
-    margin: 0;
 }
 
-
-.product .btn {
-    width: 120px;
-    height: 40px;
-    font-weight: 600;
-    font-size: 16px;
-    background-color: #5BC8C5;
-    color: #191C1B;
-}
-
-.product .btn:hover {
-    background-color: #399e9a;
-    color: #191C1B;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
+.col-9 a:hover {
+    color: #42a8a5;
 }
 
 footer {

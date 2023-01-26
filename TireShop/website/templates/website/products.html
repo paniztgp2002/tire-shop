@@ -151,7 +151,7 @@
             <path
               d="M28.3999 29.3337C28.1599 29.3337 27.9199 29.2404 27.7466 29.0671L25.2666 26.5871C24.9066 26.2271 24.9066 25.6404 25.2666 25.2671C25.6266 24.9071 26.2132 24.9071 26.5866 25.2671L29.0666 27.7471C29.4266 28.1071 29.4266 28.6937 29.0666 29.0671C28.8799 29.2404 28.6399 29.3337 28.3999 29.3337Z"
               fill="#5BC8C5" />
-          </svg></a><a href="/" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+          </svg></a><a href="/customer/cart" class="me-3"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M21.6668 29.9999C22.9555 29.9999 24.0002 28.9552 24.0002 27.6666C24.0002 26.3779 22.9555 25.3333 21.6668 25.3333C20.3782 25.3333 19.3335 26.3779 19.3335 27.6666C19.3335 28.9552 20.3782 29.9999 21.6668 29.9999Z"
@@ -165,7 +165,7 @@
             <path
               d="M27.3464 11.6667H6.89308C6.33308 11.6667 5.87975 12.0934 5.82641 12.6401L5.34641 18.4401C5.15975 20.7067 6.94642 22.6667 9.22642 22.6667H24.0531C26.0531 22.6667 27.8131 21.0268 27.9598 19.0268L28.3998 12.8001C28.4531 12.1868 27.9731 11.6667 27.3464 11.6667Z"
               fill="#5BC8C5" />
-          </svg></a><a href="login"><svg width="32" height="32" viewBox="0 0 24 24" fill="45f3ff"
+          </svg></a><a href="/login"><svg width="32" height="32" viewBox="0 0 24 24" fill="45f3ff"
             xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.4"
               d="M12 22.01C17.5228 22.01 22 17.5329 22 12.01C22 6.48715 17.5228 2.01 12 2.01C6.47715 2.01 2 6.48715 2 12.01C2 17.5329 6.47715 22.01 12 22.01Z"
@@ -187,37 +187,37 @@
           <h5><b>Filters</b></h5>
           <button id="category-dropdwon"
             class="fill-btn btn w-100 px-0 mt-3 mb-2 d-flex justify-content-between align-items-center border-0"
-            type="button" data-bs-toggle="collapse" data-bs-target="#collapse-filters" aria-expanded="true"
-            aria-controls="collapse-filters">
+            type="button" data-bs-toggle="collapse" data-bs-target="#collapse-types" aria-expanded="false"
+            aria-controls="collapse-types">
             <b>Category</b><svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.9201 0.950195L10.4001 7.4702C9.63008 8.2402 8.37008 8.2402 7.60008 7.4702L1.08008 0.950195"
                 stroke="#5BC8C5" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
           </button>
-          <div class="collapse" id="collapse-filters">
+          <div class="collapse" id="collapse-types">
             <div class="form-check-reverse d-flex justify-content-between mb-3">
               <label class="form-check-label" for="Tires">
                 Tires
               </label>
-              <input class="form-check-input" type="checkbox" value="" id="Tires">
+              <input class="form-check-input" type="checkbox" value="" id="cbTire">
             </div>
             <div class="form-check-reverse d-flex justify-content-between mb-3">
               <label class="form-check-label" for="Tires">
                 Tube
               </label>
-              <input class="form-check-input" type="checkbox" value="" id="Tires">
+              <input class="form-check-input" type="checkbox" value="" id="cbTube">
             </div>
             <div class="form-check-reverse d-flex justify-content-between">
               <label class="form-check-label" for="Tires">
                 Rims
               </label>
-              <input class="form-check-input" type="checkbox" value="" id="Tires">
+              <input class="form-check-input" type="checkbox" value="" id="cbRim">
             </div>
           </div>
           <button id="sizes-dropdwon"
             class="fill-btn btn w-100 px-0 mt-3 mb-2 d-flex justify-content-between align-items-center border-0"
-            type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sizes" aria-expanded="true"
+            type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sizes" aria-expanded="false"
             aria-controls="collapse-sizes">
             <b>Size</b><svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.9201 0.950195L10.4001 7.4702C9.63008 8.2402 8.37008 8.2402 7.60008 7.4702L1.08008 0.950195"
@@ -231,7 +231,7 @@
                 <label for="size-from" class="form-label m-0">From</label>
               </div>
               <div class="col-8 px-3 d-flex justify-content-start">
-                <input id="size-from" class="form-control text-center shadow shadow-0" value="0">
+                <input id="size-from" class="form-control text-center shadow shadow-0" value="">
               </div>
             </div>
             <div class="row mb-3 me-4 align-items-center">
@@ -239,13 +239,13 @@
                 <label for="size-till" class="form-label m-0">Till</label>
               </div>
               <div class="col-8 px-3 d-flex justify-content-start">
-                <input id="size-till" class="form-control text-center shadow shadow-0" value="10">
+                <input id="size-till" class="form-control text-center shadow shadow-0" value="">
               </div>
             </div>
           </div>
           <button id="prices-dropdwon"
             class="fill-btn btn w-100 px-0 mt-3 mb-2 d-flex justify-content-between align-items-center border-0"
-            type="button" data-bs-toggle="collapse" data-bs-target="#collapse-prices" aria-expanded="true"
+            type="button" data-bs-toggle="collapse" data-bs-target="#collapse-prices" aria-expanded="false"
             aria-controls="collapse-sizes">
             <b>Price</b><svg class="animate-dropdown" width="18" height="9" viewBox="0 0 18 9" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -257,96 +257,62 @@
           <div class="collapse" id="collapse-prices">
             <div class="row mb-3 me-4 align-items-center">
               <div class="col-4">
-                <label for="size-from" class="form-label m-0">From</label>
+                <label for="price-from" class="form-label m-0">From</label>
               </div>
               <div class="col-8 px-3 d-flex justify-content-start">
-                <input id="size-from" class="form-control text-center shadow shadow-0" value="100">
+                <input id="price-from" class="form-control text-center shadow shadow-0" value="">
               </div>
             </div>
             <div class="row mb-3 me-4 align-items-center">
               <div class="col-4">
-                <label for="size-till" class="form-label m-0">Till</label>
+                <label for="price-till" class="form-label m-0">Till</label>
               </div>
               <div class="col-8 px-3 d-flex justify-content-start">
-                <input id="size-till" class="form-control text-center shadow shadow-0" value="10000000">
+                <input id="price-till" class="form-control text-center shadow shadow-0" value="">
               </div>
             </div>
           </div>
           <div class="row justify-content-center mt-4">
             <div class="col d-flex justify-content-center">
-              <button class="btn btn-outline-secondary px-4 me-2">Cancel</button>
-              <button class="fill-btn btn ms-2">Apply filters</button>
+              <button id="cancel" class="btn btn-outline-secondary px-4 me-2">Cancel</button>
+              <button id="apply" class="fill-btn btn btn-secondary ms-2">Apply filters</button>
             </div>
           </div>
         </div>
       </div>
-      {% if not filtered %}
+      {% if not searched %}
       <div class="col-9 ps-1">
         <h5 class="ms-2"><b>All types of tire related products</b></h5>
         <div class="ms-2 mt-4 d-flex justify-content-between">
           <div>
-            <h6><b>Tubes</b></h6>
+            <h6><b>Tires</b></h6>
             <p>a ring-shaped component that surrounds a wheel's rim</p>
           </div>
           <div>
-            <button class="btn btn-outline-secondary px-5 me-2">View All</button>
+            <a href="/products?type=tire"><button class="btn btn-outline-secondary px-5 me-2">View All</button></a>
           </div>
         </div>
         <div class="mt-1 row gx-3 gy-0 mx-0 px-0">
+          {% for tire in tires %}
           <div class="col-4">
             <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
+              <img class="mx-5 w-75" src="{% static 'website/img/tire.png' %}" alt="tire">
+              <p class="mt-4 w-100"><b>{{ tire.name }}</b></p>
               <div class="w-100 d-flex justify-content-between">
                 <p>Size</p>
-                <p>5</p>
+                <p>{{ tire.size }}</p>
               </div>
               <div class="w-100 d-flex justify-content-between">
                 <p>Pattern</p>
-                <p>forward</p>
+                <p>{{ tire.pattern }}</p>
               </div>
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
+                <a href="/product/tire/{{ tire.id }}"><button class="btn">Buy</button></a>
+                <p class="price align-self-center">{{ tire.price }}$</p>
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <div class="ms-2 mt-5 d-flex justify-content-between">
           <div>
@@ -354,64 +320,30 @@
             <p>An inflatable ring that forms the interior of some pneumatic tires.</p>
           </div>
           <div>
-            <button class="btn btn-outline-secondary px-5 me-2">View All</button>
+            <a href="/products?type=tube"><button class="btn btn-outline-secondary px-5 me-2">View All</button></a>
           </div>
         </div>
         <div class="mt-1 row gx-3 gy-0 mx-0 px-0">
+          {% for tube in tubes %}
           <div class="col-4">
             <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
               <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
+              <p class="mt-4 w-100"><b>{{ tube.name }}</b></p>
               <div class="w-100 d-flex justify-content-between">
                 <p>Size</p>
-                <p>5</p>
+                <p>{{ tube.size }}</p>
               </div>
               <div class="w-100 d-flex justify-content-between">
                 <p>Pattern</p>
-                <p>forward</p>
+                <p>{{ tube.pattern }}</p>
               </div>
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
+                <a href="/product/tube/{{ tube.id }}"><button class="btn">Buy</button></a>
+                <p class="price align-self-center">{{ tube.price }}$</p>
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <div class="ms-2 mt-5 d-flex justify-content-between">
           <div>
@@ -419,164 +351,70 @@
             <p>the outer edge of a wheel, holding the tire.</p>
           </div>
           <div>
-            <button class="btn btn-outline-secondary px-5 me-2">View All</button>
+            <a href="/products?type=rim"><button class="btn btn-outline-secondary px-5 me-2">View All</button></a>
           </div>
         </div>
         <div class="mt-1 row gx-3 gy-0 mx-0 px-0">
+          {% for rim in rims %}
           <div class="col-4">
             <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
               <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
+              <p class="mt-4 w-100"><b>{{ rim.name }}</b></p>
               <div class="w-100 d-flex justify-content-between">
                 <p>Size</p>
-                <p>5</p>
+                <p>{{ rim.size }}</p>
               </div>
               <div class="w-100 d-flex justify-content-between">
                 <p>Pattern</p>
-                <p>forward</p>
+                <p>{{ rim.pattern }}</p>
               </div>
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">11.24$</p>
+                <a href="/product/rim/{{ rim.id }}"><button class="btn">Buy</button></a>
+                <p class="price align-self-center">{{ rim.price }}$</p>
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">11.24$</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-              <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">11.24$</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
       {% else %}
       <div class="col-9 ps-1">
         <h6 class="ms-2"><b>Products</b></h6>
         <div class="d-flex ms-2">
-          <div class="filter p-2 me-3 d-flex align-items-center">
-            <a class="p-0 d-flex align-items-center" href="#"><svg class="m-0" width="20" height="20"
+          {% for filter in filters %}
+          <div data-filter="{{ filter.0 }}" class="filter p-2 me-3 d-flex align-items-center">
+            <div class="p-0 d-flex align-items-center"><svg class="m-0" width="20" height="20"
                 viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M10.5579 9.00014L15.2829 4.28264C15.4242 4.14141 15.5035 3.94987 15.5035 3.75014C15.5035 3.55041 15.4242 3.35887 15.2829 3.21764C15.1417 3.07641 14.9502 2.99707 14.7504 2.99707C14.5507 2.99707 14.3592 3.07641 14.2179 3.21764L9.50044 7.94264L4.78294 3.21764C4.64171 3.07641 4.45017 2.99707 4.25044 2.99707C4.05072 2.99707 3.85917 3.07641 3.71794 3.21764C3.57671 3.35887 3.49737 3.55041 3.49737 3.75014C3.49737 3.94987 3.57671 4.14141 3.71794 4.28264L8.44294 9.00014L3.71794 13.7176C3.64765 13.7874 3.59185 13.8703 3.55377 13.9617C3.5157 14.0531 3.49609 14.1511 3.49609 14.2501C3.49609 14.3491 3.5157 14.4472 3.55377 14.5386C3.59185 14.63 3.64765 14.7129 3.71794 14.7826C3.78766 14.8529 3.87062 14.9087 3.96201 14.9468C4.0534 14.9849 4.15143 15.0045 4.25044 15.0045C4.34945 15.0045 4.44748 14.9849 4.53888 14.9468C4.63027 14.9087 4.71322 14.8529 4.78294 14.7826L9.50044 10.0576L14.2179 14.7826C14.2877 14.8529 14.3706 14.9087 14.462 14.9468C14.5534 14.9849 14.6514 15.0045 14.7504 15.0045C14.8495 15.0045 14.9475 14.9849 15.0389 14.9468C15.1303 14.9087 15.2132 14.8529 15.2829 14.7826C15.3532 14.7129 15.409 14.63 15.4471 14.5386C15.4852 14.4472 15.5048 14.3491 15.5048 14.2501C15.5048 14.1511 15.4852 14.0531 15.4471 13.9617C15.409 13.8703 15.3532 13.7874 15.2829 13.7176L10.5579 9.00014Z"
                   fill="#191C1B" />
               </svg>
-            </a>
-            <p class="m-0 ms-2">Tubes</p>
+            </div>
+            <p class="m-0 ms-2">{{ filter.0 }}{{ filter.1 }}</p>
           </div>
-          <div class="filter p-2 me-3 d-flex align-items-center">
-            <a class="p-0 d-flex align-items-center" href="#"><svg class="m-0" width="20" height="20"
-                viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.5579 9.00014L15.2829 4.28264C15.4242 4.14141 15.5035 3.94987 15.5035 3.75014C15.5035 3.55041 15.4242 3.35887 15.2829 3.21764C15.1417 3.07641 14.9502 2.99707 14.7504 2.99707C14.5507 2.99707 14.3592 3.07641 14.2179 3.21764L9.50044 7.94264L4.78294 3.21764C4.64171 3.07641 4.45017 2.99707 4.25044 2.99707C4.05072 2.99707 3.85917 3.07641 3.71794 3.21764C3.57671 3.35887 3.49737 3.55041 3.49737 3.75014C3.49737 3.94987 3.57671 4.14141 3.71794 4.28264L8.44294 9.00014L3.71794 13.7176C3.64765 13.7874 3.59185 13.8703 3.55377 13.9617C3.5157 14.0531 3.49609 14.1511 3.49609 14.2501C3.49609 14.3491 3.5157 14.4472 3.55377 14.5386C3.59185 14.63 3.64765 14.7129 3.71794 14.7826C3.78766 14.8529 3.87062 14.9087 3.96201 14.9468C4.0534 14.9849 4.15143 15.0045 4.25044 15.0045C4.34945 15.0045 4.44748 14.9849 4.53888 14.9468C4.63027 14.9087 4.71322 14.8529 4.78294 14.7826L9.50044 10.0576L14.2179 14.7826C14.2877 14.8529 14.3706 14.9087 14.462 14.9468C14.5534 14.9849 14.6514 15.0045 14.7504 15.0045C14.8495 15.0045 14.9475 14.9849 15.0389 14.9468C15.1303 14.9087 15.2132 14.8529 15.2829 14.7826C15.3532 14.7129 15.409 14.63 15.4471 14.5386C15.4852 14.4472 15.5048 14.3491 15.5048 14.2501C15.5048 14.1511 15.4852 14.0531 15.4471 13.9617C15.409 13.8703 15.3532 13.7874 15.2829 13.7176L10.5579 9.00014Z"
-                  fill="#191C1B" />
-              </svg>
-            </a>
-            <p class="m-0 ms-2">Size 2-4</p>
-          </div>
+          {% endfor %}
         </div>
         <div class="mt-1 row gx-3 gy-3 mx-0 px-0">
+          {% for product in products %}
           <div class="col-4">
             <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
+              <img class="mx-5 w-75" src="{% static 'website/img/'|add:product.img|add:'.png' %}" alt="{{ product.img }}">
+              <p class="mt-4 w-100"><b>{{ product.name }}</b></p>
               <div class="w-100 d-flex justify-content-between">
                 <p>Size</p>
-                <p>5</p>
+                <p>{{ product.size }}</p>
               </div>
               <div class="w-100 d-flex justify-content-between">
                 <p>Pattern</p>
-                <p>forward</p>
+                <p>{{ product.pattern }}</p>
               </div>
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
+                <a href="/product/{{ product.img }}/{{ product.id }}"><button class="btn">Buy</button></a>
+                <p class="price align-self-center">{{ product.price }}$</p>
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-              <img class="mx-5" src="{% static 'website/img/tube.png' %}" alt="tube">
-              <p class="mt-4 w-100"><b>Tube model Bluh</b></p>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Size</p>
-                <p>5</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>forward</p>
-              </div>
-              <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                <button class="btn">Buy</button>
-                <p class="price align-self-center">24.99$</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
       {% endif %}

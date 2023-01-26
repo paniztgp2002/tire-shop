@@ -46,6 +46,15 @@ function selectGroupFunc(selection) {
     });
 }
 
+const searchSubmit = document.getElementById("search-submit");
+const searchForm = document.getElementById("search-form");
+searchSubmit.addEventListener('click', () => {
+    searchForm.elements['type'].value = selectedGroup;
+    if (searchForm.elements['name'].value) {
+        searchForm.submit();
+    }
+});
+
 new Splide('.splide', {
     type: 'loop',
     perPage: 4,

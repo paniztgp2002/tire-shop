@@ -1,9 +1,13 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
 *
 {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 body 
 {
@@ -12,7 +16,7 @@ body
 	align-items: center;
 	min-height: 100vh;
 	flex-direction: column;
-	background: linear-gradient(to left, #FFDD00, #00B0AC);
+	background-color: #1D1D1F;
 }
 .box 
 {
@@ -169,4 +173,16 @@ input[type="submit"]
 input[type="submit"]:active 
 {
 	opacity: 0.8;
+}
+#wrong {
+	color: red;
+	margin-bottom: 10px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
 }

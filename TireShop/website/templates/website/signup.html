@@ -5,35 +5,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>TireShop - Sign Up</title>
+	<link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
 	<link href="{% static 'website/css/signup.css' %}" rel="stylesheet">
 </head>
 
 <body>
 	<div class="box">
-		<form method="post" action="/signup/">
+		<form id="form" method="post" action="/signup/">
 			{% csrf_token %}
 			<h2>Sign Up</h2>
-				<div class="inputBox">
-					{{ form.name }}
-					<span>Name</span>
-					<i></i>
-				</div>
-				<div class="inputBox">
-					{{ form.phone_number }}
-					<span>Phone number</span>
-					<i></i>
-				</div>
-				<div class="inputBox">
-					{{ form.password }}
-					<span>Password</span>
-					<i></i>
-				</div>
-				<div class="links">
-					<a href="/login">Login</a>
-				</div>
-				<input type="submit" value="Sign Up">
+			<div class="inputBox">
+				{{ form.name }}
+				<span>Name</span>
+				<i></i>
+			</div>
+			<div class="inputBox">
+				{{ form.phone_number }}
+				<span>Phone number</span>
+				<i></i>
+			</div>
+			<div class="inputBox">
+				{{ form.password }}
+				<span>Password</span>
+				<i></i>
+			</div>
+			<div class="links">
+				<a href="/login">already have an account?</a>
+				<a href="/login">Login</a>
+			</div>
+			<p class="mt-1 text-light mb-1">Sign up as a:</p>
+			<div class="btn-group mt-0" role="group">
+				<button id="customer" type="submit" class="btn btn-secondary py-2 fill-btn">Customer</button>
+				<button id="seller" type="submit" class="btn btn-secondary py-2 fill-btn">Seller</button>
+			</div>
+			{{ form.user_type }}
 		</form>
 	</div>
+	<script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'website/js/signup.js' %}"></script>
 </body>
 
 </html>

@@ -81,32 +81,48 @@ body>.container-fluid {
     font-weight: 600;
 }
 
-.product {
-    width: 100%;
+.input-number {
+    width: 180px;
+    outline: none;
     background-color: #353340;
-    border-radius: 20px;
+    color: white !important;
 }
 
-.product .price {
-    font-weight: 700;
-    font-size: 20px;
-    color: #5BC8C5;
-    margin: 0;
+.input-number,
+.input-number-decrement,
+.input-number-increment {
+  border: 0;
+  height: 55px;
+  user-select: none;
+  color: #1D1D1F;
+  font-weight: bold;
+  font-size: 24px;
 }
 
-
-.product .btn {
-    width: 120px;
-    height: 40px;
-    font-weight: 600;
-    font-size: 16px;
-    background-color: #5BC8C5;
-    color: #191C1B;
+.input-number-decrement,
+.input-number-increment {
+  display: inline-block;
+  background: #5BC8C5;
+  color: #1D1D1F;
+  font-weight: bold;
+  font-size: 36px;
+  width: 50px;
+  cursor: pointer;
 }
 
-.product .btn:hover {
-    background-color: #399e9a;
-    color: #191C1B;
+.input-number-decrement:active,
+.input-number-increment:active {
+    background: #5BC8C5;
+}
+
+.input-number-decrement {
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+}
+
+.input-number-increment {
+  border-left: none;
+  border-radius: 0 12px 12px 0;
 }
 
 input::-webkit-outer-spin-button,
