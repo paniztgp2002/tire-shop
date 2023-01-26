@@ -59,9 +59,9 @@ def signup(request):
             data = form.cleaned_data
             user = User.objects.create_user(username=data['phone_number'], password=data['password'], first_name=data['user_type'])
             user.save()
-            cart = Cart(customer_id=user.id)
-            cart.save()
             if data['user_type'] == "customer":
+                cart = Cart(customer_id=user.id)
+                cart.save()
                 sther = Customer(user=user, name=data['name'], phone_number=data['phone_number'])
             else:
                 sther = Seller(user=user, name=data['name'], phone_number=data['phone_number'])
@@ -179,7 +179,8 @@ def seller_products(request):
             tubes = Tube.objects.filter(seller_id=request.user.id)
             rims = Rim.objects.filter(seller_id=request.user.id)
             products = chain(tires, tubes, rims)
-            return render(request, 'website/seller.products.html', {"products": products})
+            seller = Seller.objects.get(user=request.user)
+            return render(request, 'website/seller.products.html', {"products": products, "seller": seller})
         return HttpResponseRedirect('/customer/dashboard')
     return HttpResponseRedirect('/login')
 
@@ -202,7 +203,8 @@ def seller_addproduct(request):
             return HttpResponseRedirect('/seller/products')
     else:
         form = AddForm()
-    return render(request, 'website/seller.addproduct.html', {'form': form})
+    seller = Seller.objects.get(user=request.user)
+    return render(request, 'website/seller.addproduct.html', {'form': form, 'seller': seller})
 
 
 def customer(request):
@@ -248,6 +250,11 @@ def customer_cart(request):
                 customer.save()
                 cart.save()
                 new_cart.save()
+                cart_products = CartContainsProduct.objects.filter(cart_id=cart.id)
+                for product in cart_products:
+                    seller = Seller.objects.get(id=product.seller_id)
+                    seller.balance += product.totalprice()
+                    seller.save()
                 return HttpResponseRedirect("/customer/dashboard")
             return HttpResponseNotFound("not enough balance")
         return HttpResponseNotFound("invalid postcode")
