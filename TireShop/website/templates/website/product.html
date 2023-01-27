@@ -196,9 +196,11 @@
         <div class="d-flex justify-content-between mt-2">
           <h5>Layers:</h5><h5>{{ product.layer }}</h5>
         </div>
+        {% if product.pattern %}
         <div class="d-flex justify-content-between mt-2">
           <h5>Pattern:</h5><h5>{{ product.pattern }}</h5>
         </div>
+        {% endif %}
         <form action="" method="post">
         {% csrf_token %}
         <div class="d-flex justify-content-between align-items-center mt-2">
@@ -221,60 +223,28 @@
       <div class="splide" role="group" aria-label="Products">
         <div class="splide__track">
           <ul class="splide__list">
+            {% for similar in products %}
             <li class="splide__slide">
               <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-                <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-                <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
+                <img class="mx-5 w-75" src="{% static 'website/img/'|add:similar.img|add:'.png' %}" alt="{{ similar.img }}">
+                <p class="mt-4 w-100"><b>{{ similar.name }}</b></p>
                 <div class="w-100 d-flex justify-content-between">
                   <p>Size</p>
-                  <p>5</p>
+                  <p>{{ similar.size }}</p>
                 </div>
                 <div class="w-100 d-flex justify-content-between">
+                  {% if similar.pattern %}
                   <p>Pattern</p>
-                  <p>forward</p>
+                  <p>{{ similar.pattern }}</p>
+                  {% endif %}
                 </div>
                 <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                  <button class="btn">Buy</button>
-                  <p class="price align-self-center">11.24$</p>
+                  <a href="/product/{{ similar.type }}/{{ similar.id }}"><button class="btn">Buy</button></a>
+                  <p class="price align-self-center">{{ similar.price }}$</p>
                 </div>
               </div>
             </li>
-            <li class="splide__slide">
-              <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-                <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-                <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
-                <div class="w-100 d-flex justify-content-between">
-                  <p>Size</p>
-                  <p>5</p>
-                </div>
-                <div class="w-100 d-flex justify-content-between">
-                  <p>Pattern</p>
-                  <p>forward</p>
-                </div>
-                <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                  <button class="btn">Buy</button>
-                  <p class="price align-self-center">11.24$</p>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="product p-4 d-flex flex-column justify-content-center align-items-center">
-                <img class="mx-5" src="{% static 'website/img/rim.png' %}" alt="rim">
-                <p class="mt-4 w-100"><b>Rim model Bluh</b></p>
-                <div class="w-100 d-flex justify-content-between">
-                  <p>Size</p>
-                  <p>5</p>
-                </div>
-                <div class="w-100 d-flex justify-content-between">
-                  <p>Pattern</p>
-                  <p>forward</p>
-                </div>
-                <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
-                  <button class="btn">Buy</button>
-                  <p class="price align-self-center">11.24$</p>
-                </div>
-              </div>
-            </li>
+            {% endfor %}
           </ul>
         </div>
       </div>

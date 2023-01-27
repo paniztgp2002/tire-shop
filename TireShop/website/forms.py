@@ -18,8 +18,8 @@ class LoginForm(forms.Form):
 class SearchForm(forms.Form):
     name = forms.CharField(max_length=50)
     type = forms.CharField(max_length=5)
+    pattern = forms.CharField(max_length=50, required=False)
     size = forms.IntegerField(required=False)
-    pattern = forms.IntegerField(required=False)
 
 
 class AddForm(forms.Form):

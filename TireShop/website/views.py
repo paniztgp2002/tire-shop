@@ -28,7 +28,7 @@ def index(request):
                 size = quote_plus(str(data['size']))
                 redirect_url += f'&sizeFrom={size}'
                 redirect_url += f'&sizeTill={size}'
-            if data['pattern'] != 0:
+            if data['pattern'] != '0':
                 pattern = quote_plus(str(data['pattern']))
                 redirect_url += f'&pattern={pattern}'
             return HttpResponseRedirect(redirect_url)
@@ -116,7 +116,8 @@ def product(request, product_type, product_id):
             return HttpResponseNotFound("invalid amount / out of stock")
         return HttpResponseNotFound("Sellers can't buy products.")
     seller = Seller.objects.get(user=User.objects.get(id=product.seller_id))
-    return render(request, 'website/product.html', {"product": product, "seller": seller.name})
+    products = type_models[product_type].objects.all()
+    return render(request, 'website/product.html', {"product": product, "seller": seller.name, "products": products})
 
 
 def products(request):
@@ -167,7 +168,17 @@ def seller_dashboard(request):
     if request.user.is_authenticated:
         if request.user.first_name == "seller":
             seller = Seller.objects.get(user=request.user)
-            return render(request, 'website/seller.dashboard.html', {'seller': seller})
+            paid_carts = Cart.objects.filter(paid=True).values_list('id')
+            tires_in_carts = CartContainsProduct.objects.filter(type='tire').filter(cart_id__in=paid_carts).values_list('product_id')
+            tubes_in_carts = CartContainsProduct.objects.filter(type='tube').filter(cart_id__in=paid_carts).values_list('product_id')
+            rims_in_carts = CartContainsProduct.objects.filter(type='rim').filter(cart_id__in=paid_carts).values_list('product_id')
+            best_selling_tires = Tire.objects.filter(id__in=tires_in_carts).filter(seller_id=request.user.id)
+            best_selling_tubes = Tube.objects.filter(id__in=tubes_in_carts).filter(seller_id=request.user.id)
+            best_selling_rims = Rim.objects.filter(id__in=rims_in_carts).filter(seller_id=request.user.id)
+            best_sellings = list(chain(best_selling_tires, best_selling_tubes, best_selling_rims))
+            if len(best_sellings) > 3:
+                best_sellings = best_sellings[:3]
+            return render(request, 'website/seller.dashboard.html', {'seller': seller, "best_sellings": best_sellings})
         return HttpResponseRedirect('/customer/dashboard')
     return HttpResponseRedirect('/login')
 
@@ -195,9 +206,9 @@ def seller_addproduct(request):
         if form.is_valid():
             data = form.cleaned_data
             this_model = type_models[data['type']]
-            del data['type']
-            if this_model != "tire":
+            if data['type'] != "tire":
                 del data['pattern']
+            del data['type']
             new_product = this_model(seller_id=request.user.id, **data)
             new_product.save()
             return HttpResponseRedirect('/seller/products')
@@ -253,7 +264,7 @@ def customer_cart(request):
                 cart_products = CartContainsProduct.objects.filter(cart_id=cart.id)
                 for product_cart in cart_products:
                     product = type_models[product_cart.type].objects.get(id=product_cart.product_id)
-                    seller = Seller.objects.get(id=product.seller_id)
+                    seller = Seller.objects.get(user=User.objects.get(id=product.seller_id))
                     seller.balance += product_cart.totalprice()
                     seller.save()
                 return HttpResponseRedirect("/customer/dashboard")

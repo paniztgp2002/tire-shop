@@ -333,10 +333,6 @@
                 <p>Size</p>
                 <p>{{ tube.size }}</p>
               </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>{{ tube.pattern }}</p>
-              </div>
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
                 <a href="/product/tube/{{ tube.id }}"><button class="btn">Buy</button></a>
                 <p class="price align-self-center">{{ tube.price }}$</p>
@@ -363,10 +359,6 @@
               <div class="w-100 d-flex justify-content-between">
                 <p>Size</p>
                 <p>{{ rim.size }}</p>
-              </div>
-              <div class="w-100 d-flex justify-content-between">
-                <p>Pattern</p>
-                <p>{{ rim.pattern }}</p>
               </div>
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
                 <a href="/product/rim/{{ rim.id }}"><button class="btn">Buy</button></a>
@@ -404,10 +396,12 @@
                 <p>Size</p>
                 <p>{{ product.size }}</p>
               </div>
+              {% if product.pattern %}
               <div class="w-100 d-flex justify-content-between">
                 <p>Pattern</p>
                 <p>{{ product.pattern }}</p>
               </div>
+              {% endif %}
               <div class="mt-2 w-100 d-flex justify-content-between align-items-center">
                 <a href="/product/{{ product.img }}/{{ product.id }}"><button class="btn">Buy</button></a>
                 <p class="price align-self-center">{{ product.price }}$</p>
